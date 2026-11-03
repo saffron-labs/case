@@ -18,14 +18,12 @@ All pricing and shopping logic is fully localized to **Indian Rupee (₹)**:
 
 ## 📸 Real Cover Photos & Visual System
 
-1. **Hero Showcase Cover Photo**:
-   - Photorealistic mirror selfie shot of a Gen-Z shopper holding a shimmering holographic Y2K MagSafe case.
-   - Switcher: Toggle between `📸 Real Cover Photo` and `📱 3D Studio Mockup`.
+1. **Hero Showcase**:
+   - Features the authentic **Vintage Blue Dreamer & GT** case cover photo with crystal-clear bumper, vintage stamps, and drop-tested acrylic finish.
 
 2. **Product Catalog Real Photography**:
    - Features real product covers: *Vintage Blue Dreamer & GT*, *FeatherLight Neon Lime*, *Gothic Raven Stained-Glass*, *Minimalist Velvet Matte Series*, *Pixel MagFit Dual-Armor Shield*, and more.
-   - **Default View: Real Cover Photos**: Each phone case card displays crisp cover photography with smooth zoom hover effects.
-   - **Toggle View Toolbar**: Click between `📸 Real Cover Photos` and `📱 3D Vector` anytime.
+   - Clean, vertical aspect cards with smooth hover zoom effects.
    - **Quick View Modal**: Inspect high-resolution cover photos, device compatibility, and materials up close.
 
 3. **Mall Kiosk Storefront Experience**:
@@ -34,15 +32,14 @@ All pricing and shopping logic is fully localized to **Indian Rupee (₹)**:
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Live Site & Local Development
+
+- **Live Site**: [https://saffronlabs.in/case/](https://saffronlabs.in/case/)
+- **GitHub Repository**: [https://github.com/saffron-labs/case](https://github.com/saffron-labs/case)
 
 To run locally:
 ```bash
-# Using Python
 python -m http.server 3000
-
-# Or using Node
-npx serve .
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.

@@ -246,7 +246,6 @@ const state = {
   activeModelFilter: 'all',
   sortBy: 'featured',
   searchQuery: '',
-  productViewMode: 'photos', // 'photos' | 'mockup'
   cart: [],
   wishlist: new Set(),
   activeOfferSlide: 0,
@@ -311,34 +310,7 @@ function saveState() {
   }
 }
 
-// --- 4. VIEW TOGGLES (PHOTOS VS MOCKUPS) ---
-function toggleHeroView(mode) {
-  const photoView = document.getElementById('hero-view-photo');
-  const vectorView = document.getElementById('hero-view-vector');
-  const tabPhoto = document.getElementById('hero-tab-photo');
-  const tabVector = document.getElementById('hero-tab-vector');
-
-  if (mode === 'photo') {
-    if (photoView) photoView.classList.remove('hidden');
-    if (vectorView) vectorView.classList.add('hidden');
-    if (tabPhoto) {
-      tabPhoto.className = 'px-4 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm';
-    }
-    if (tabVector) {
-      tabVector.className = 'px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
-    }
-  } else {
-    if (photoView) photoView.classList.add('hidden');
-    if (vectorView) vectorView.classList.remove('hidden');
-    if (tabPhoto) {
-      tabPhoto.className = 'px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
-    }
-    if (tabVector) {
-      tabVector.className = 'px-4 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm';
-    }
-  }
-}
-
+// --- 4. KIOSK VIEW TOGGLE ---
 function toggleKioskView(mode) {
   const photoView = document.getElementById('kiosk-view-photo');
   const mapView = document.getElementById('kiosk-view-map');
@@ -356,21 +328,6 @@ function toggleKioskView(mode) {
     if (tabPhoto) tabPhoto.className = 'px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
     if (tabMap) tabMap.className = 'px-4 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm';
   }
-}
-
-function setProductViewMode(mode) {
-  state.productViewMode = mode;
-  const btnPhoto = document.getElementById('view-mode-photo');
-  const btnMockup = document.getElementById('view-mode-mockup');
-
-  if (mode === 'photos') {
-    if (btnPhoto) btnPhoto.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-pink-600 text-white transition-all flex items-center gap-1.5 shadow-sm';
-    if (btnMockup) btnMockup.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
-  } else {
-    if (btnPhoto) btnPhoto.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
-    if (btnMockup) btnMockup.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-pink-600 text-white transition-all flex items-center gap-1.5 shadow-sm';
-  }
-  renderProducts();
 }
 
 // --- 5. HERO BANNER SLIDER ---
@@ -585,65 +542,31 @@ function renderProducts() {
           </button>
         </div>
 
-        <!-- VISUAL CASE STAGE -->
-        ${state.productViewMode === 'photos' ? `
-          <!-- REAL COVER PHOTO DISPLAY -->
-          <div class="relative h-72 rounded-2xl overflow-hidden mb-4 bg-slate-50 border border-slate-100 group/img cursor-pointer flex items-center justify-center p-2" onclick="openQuickView('${item.id}')">
-            <img 
-              src="${item.coverPhoto}" 
-              alt="${item.name} Real Cover" 
-              loading="lazy" 
-              class="w-full h-full object-contain rounded-xl transform group-hover/img:scale-105 transition-transform duration-500 drop-shadow-md"
-              onerror="this.onerror=null; this.src='assets/images/case-hologram.jpg'"
-            />
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity pointer-events-none rounded-2xl"></div>
+        <!-- REAL COVER PHOTO DISPLAY -->
+        <div class="relative h-72 rounded-2xl overflow-hidden mb-4 bg-slate-50 border border-slate-100 group/img cursor-pointer flex items-center justify-center p-2" onclick="openQuickView('${item.id}')">
+          <img 
+            src="${item.coverPhoto}" 
+            alt="${item.name} Real Cover" 
+            loading="lazy" 
+            class="w-full h-full object-contain rounded-xl transform group-hover/img:scale-105 transition-transform duration-500 drop-shadow-md"
+            onerror="this.onerror=null; this.src='assets/images/case-hologram.jpg'"
+          />
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity pointer-events-none rounded-2xl"></div>
 
-            <div class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-black text-white tracking-widest uppercase">
-              ${item.isMagSafe ? '🧲 MagSafe' : '📱 Slim Grip'}
-            </div>
-
-            <!-- Quick View floating pill on card hover -->
-            <button 
-              type="button" 
-              onclick="event.stopPropagation(); openQuickView('${item.id}')"
-              class="absolute bottom-3 left-1/2 transform -translate-x-1/2 px-4 py-1.5 rounded-full bg-slate-900/90 text-white text-xs font-semibold backdrop-blur-md opacity-0 group-hover/img:opacity-100 transition-all duration-200 shadow-lg hover:bg-pink-600 flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-              <span>Quick View</span>
-            </button>
+          <div class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-black text-white tracking-widest uppercase">
+            ${item.isMagSafe ? '🧲 MagSafe' : '📱 Slim Grip'}
           </div>
-        ` : `
-          <!-- 3D VECTOR MOCKUP DISPLAY -->
-          <div class="relative py-6 flex items-center justify-center bg-gradient-to-b from-slate-50/80 to-slate-100/40 rounded-2xl overflow-hidden mb-4 border border-slate-100/60 case-shine cursor-pointer h-72" onclick="openQuickView('${item.id}')">
-            <div class="phone-mockup-wrapper">
-              <div class="phone-shell" style="background: ${item.bgGradient}; border-color: ${item.bumperColor};">
-                <div class="camera-bump">
-                  <div class="camera-lens"></div>
-                  <div class="camera-lens"></div>
-                  <div class="camera-lens"></div>
-                  <div class="camera-flash"></div>
-                </div>
-                ${item.isMagSafe ? `
-                  <div class="magsafe-ring">
-                    <div class="magsafe-tail"></div>
-                  </div>
-                ` : ''}
-                <div class="absolute bottom-3 left-0 right-0 text-center pointer-events-none">
-                  <span class="text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded bg-black/30 text-white backdrop-blur-sm">
-                    CASEPOP • ${item.protection.split(' ')[0]}
-                  </span>
-                </div>
-              </div>
-            </div>
 
-            <button 
-              type="button" 
-              onclick="event.stopPropagation(); openQuickView('${item.id}')"
-              class="absolute bottom-3 px-3.5 py-1.5 rounded-full bg-slate-900/90 text-white text-xs font-semibold backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 shadow-lg hover:bg-pink-600 flex items-center gap-1.5">
-              <span>Quick View</span>
-            </button>
-          </div>
-        `}
+          <!-- Quick View floating pill on card hover -->
+          <button 
+            type="button" 
+            onclick="event.stopPropagation(); openQuickView('${item.id}')"
+            class="absolute bottom-3 left-1/2 transform -translate-x-1/2 px-4 py-1.5 rounded-full bg-slate-900/90 text-white text-xs font-semibold backdrop-blur-md opacity-0 group-hover/img:opacity-100 transition-all duration-200 shadow-lg hover:bg-pink-600 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <span>Quick View</span>
+          </button>
+        </div>
 
         <!-- Product Meta -->
         <div>
