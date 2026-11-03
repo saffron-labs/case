@@ -1,6 +1,6 @@
-# CasePop — Trendy Mall Phone Case E-Commerce Experience (INR)
+# Phone Case — Trendy Mall Phone Case E-Commerce Experience (INR)
 
-A modern, high-energy retail landing page and single-page web app for **CasePop**, the trendy phone case kiosk located on Level 2 of Grand Galleria Mall.
+A modern, high-energy retail landing page and single-page web app for **Phone Case**, the trendy phone case kiosk located on Level 2 of Grand Galleria Mall.
 
 ---
 
@@ -23,12 +23,11 @@ All pricing and shopping logic is fully localized to **Indian Rupee (₹)**:
 
 2. **Product Catalog Real Photography**:
    - Features real product covers: *Vintage Blue Dreamer & GT*, *FeatherLight Neon Lime*, *Gothic Raven Stained-Glass*, *Minimalist Velvet Matte Series*, *Pixel MagFit Dual-Armor Shield*, and more.
-   - Clean, vertical aspect cards with smooth hover zoom effects.
+   - Clean vertical cards with smooth hover zoom effects.
    - **Quick View Modal**: Inspect high-resolution cover photos, device compatibility, and materials up close.
 
 3. **Mall Kiosk Storefront Experience**:
-   - High-end commercial retail photo of the CasePop Level 2 Kiosk with glowing neon pink & lime accents, acrylic displays, and MagSafe demo bar.
-   - Switcher: Toggle between `🏬 Real Kiosk Photo` and `🗺️ Level 2 Map`.
+   - Direct interactive Level 2 Mall Directory Floor Plan with Kiosk #K-204 location pin, landmarks (Apple, Boba Guys, Elevator), and operating hours.
 
 ---
 

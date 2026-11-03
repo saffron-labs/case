@@ -1,5 +1,5 @@
 /**
- * CasePop - Modern Mall Phone Case E-Commerce
+ * Phone Case - Modern Mall Phone Case E-Commerce
  * Real Product Catalog & INR Pricing Logic
  */
 
@@ -310,27 +310,7 @@ function saveState() {
   }
 }
 
-// --- 4. KIOSK VIEW TOGGLE ---
-function toggleKioskView(mode) {
-  const photoView = document.getElementById('kiosk-view-photo');
-  const mapView = document.getElementById('kiosk-view-map');
-  const tabPhoto = document.getElementById('kiosk-tab-photo');
-  const tabMap = document.getElementById('kiosk-tab-map');
-
-  if (mode === 'photo') {
-    if (photoView) photoView.classList.remove('hidden');
-    if (mapView) mapView.classList.add('hidden');
-    if (tabPhoto) tabPhoto.className = 'px-4 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm';
-    if (tabMap) tabMap.className = 'px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
-  } else {
-    if (photoView) photoView.classList.add('hidden');
-    if (mapView) mapView.classList.remove('hidden');
-    if (tabPhoto) tabPhoto.className = 'px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
-    if (tabMap) tabMap.className = 'px-4 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm';
-  }
-}
-
-// --- 5. HERO BANNER SLIDER ---
+// --- 4. HERO BANNER SLIDER ---
 const HERO_OFFERS = [
   {
     tag: '⚡ MALL KIOSK SPECIAL',
@@ -1147,7 +1127,7 @@ function initEventListeners() {
       e.preventDefault();
       const email = document.getElementById('vip-email').value;
       if (email) {
-        showToast(`🎉 Welcome to CasePop VIP Club! 15% code sent to ${email}`, 'success');
+        showToast(`🎉 Welcome to Phone Case VIP Club! 15% code sent to ${email}`, 'success');
         vipForm.reset();
         if (typeof confetti === 'function') {
           confetti({ particleCount: 50, spread: 70, origin: { y: 0.8 } });
