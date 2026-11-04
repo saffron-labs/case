@@ -1,1072 +1,273 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phone Case | Trendy Mall Phone Cases & MagSafe Accessories</title>
-  <meta name="description" content="Shop Phone Case at Grand Galleria Mall. High-protection MagSafe, Y2K street prints, aesthetic pastels, and heavy-duty armor phone cases. Buy 2 Get 1 Free today!">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20100%22%20100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              pink: '#FF2E93',
-              pinkHover: '#E6007A',
-              yellow: '#FFE600',
-              lime: '#CCFF00',
-              cyan: '#06B6D4',
-              dark: '#0F172A',
-              cream: '#FCFAF6',
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Canvas Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-  <!-- Custom Stylesheet -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phone Case — Cases fitted at the kiosk, Level 2</title>
+  <meta name="description" content="Phone cases for iPhone, Galaxy and Pixel, fitted while you wait at our Level 2 kiosk. Buy any 3, pay for 2. Free screen guard with every case.">
+  <meta name="theme-color" content="#1B1D24">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='8' y='2' width='16' height='28' rx='5' fill='%231B1D24'/%3E%3Ccircle cx='13' cy='8' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#FCFAF6] text-slate-900 selection:bg-pink-500 selection:text-white antialiased">
+<body>
+  <a class="skip-link" href="#shop">Skip to the cases</a>
 
-  <!-- TOP MALL MARQUEE TICKER -->
-  <aside aria-label="Mall Announcements" class="bg-slate-950 text-white text-xs font-bold py-2.5 overflow-hidden border-b border-white/10 relative z-40">
-    <div class="animate-marquee flex items-center gap-8 whitespace-nowrap">
-      <span class="flex items-center gap-2 text-pink-400">
-        <span class="inline-block w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
-        MALL KIOSK SPECIAL: BUY 2 GET 1 FREE TODAY ONLY
-      </span>
-      <span class="text-slate-500">•</span>
-      <span class="flex items-center gap-1.5 text-lime-400">
-        ⚡ 100% READY STOCK & LIVE FITTING AT LEVEL 2 KIOSK
-      </span>
-      <span class="text-slate-500">•</span>
-      <span class="text-cyan-300">
-        🛡️ FREE 9H TEMPERED GLASS SCREEN PROTECTOR INSTALLED WITH EVERY CASE
-      </span>
-      <span class="text-slate-500">•</span>
-      <span class="text-yellow-300">
-        📍 LEVEL 2 GRAND GALLERIA MALL (ACROSS FROM BOBA GUYS & APPLE)
-      </span>
-      <span class="text-slate-500">•</span>
-      <span class="text-pink-400">
-        ✨ 2-YEAR ZERO-YELLOWING REPLACEMENT GUARANTEE
-      </span>
-      <span class="text-slate-500">•</span>
-      <!-- Seamless loop repetition -->
-      <span class="flex items-center gap-2 text-pink-400">
-        <span class="inline-block w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
-        MALL KIOSK SPECIAL: BUY 2 GET 1 FREE TODAY ONLY
-      </span>
-      <span class="text-slate-500">•</span>
-      <span class="flex items-center gap-1.5 text-lime-400">
-        ⚡ 100% READY STOCK & LIVE FITTING AT LEVEL 2 KIOSK
-      </span>
-      <span class="text-slate-500">•</span>
-      <span class="text-cyan-300">
-        🛡️ FREE 9H TEMPERED GLASS SCREEN PROTECTOR INSTALLED WITH EVERY CASE
-      </span>
-      <span class="text-slate-500">•</span>
-      <span class="text-yellow-300">
-        📍 LEVEL 2 GRAND GALLERIA MALL (ACROSS FROM BOBA GUYS & APPLE)
-      </span>
-    </div>
-  </aside>
+  <p class="deal-bar"><span>Buy any 3 cases, pay for 2</span><span class="deal-bar__sep" aria-hidden="true">/</span><span class="deal-bar__more">Free screen guard fitted with every case</span></p>
 
-  <!-- STICKY NAVIGATION BAR -->
-  <header class="sticky top-0 z-30 glass-panel border-b border-slate-200/80 shadow-sm transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-      
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 group flex-shrink-0">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-pink-500 via-pink-600 to-purple-600 flex items-center justify-center text-white shadow-md shadow-pink-500/25 group-hover:scale-105 group-hover:rotate-3 transition-all">
-          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-            <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
-          </svg>
-        </div>
-        <div class="flex flex-col">
-          <span class="font-display font-black text-2xl tracking-tight text-slate-900 group-hover:text-pink-600 transition-colors">
-            Phone<span class="text-pink-600">Case</span><span class="text-xs text-lime-500 font-black ml-0.5">●</span>
-          </span>
-          <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase -mt-1">Mall Kiosk & Retail</span>
-        </div>
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a href="#top" class="wordmark" aria-label="Phone Case home">
+        <svg class="wordmark__mark" viewBox="0 0 20 32" aria-hidden="true"><rect x="1" y="1" width="18" height="30" rx="5.5"/><circle cx="6.5" cy="7" r="2.3"/></svg>
+        <span data-shop="name">Phone Case</span>
       </a>
 
-      <!-- Mall Live Open/Closed Pill -->
-      <div id="mall-status-badge" class="hidden lg:flex items-center bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm text-xs">
-        <span class="relative flex h-2.5 w-2.5 mr-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-        </span>
-        <span class="font-bold text-emerald-700">MALL KIOSK OPEN</span>
-        <span class="text-slate-500 ml-1.5">• Closes 9:30 PM</span>
-      </div>
-
-      <!-- Center Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-700">
-        <a href="#shop-vibe" class="hover:text-pink-600 transition-colors">Shop by Vibe</a>
-        <a href="#products-section" class="hover:text-pink-600 transition-colors">Trending Drops</a>
-        <a href="#mall-kiosk-info" class="hover:text-pink-600 transition-colors">Visit Mall Kiosk</a>
-        <a href="#faqs" class="hover:text-pink-600 transition-colors">FAQs & Warranty</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#shop">Shop</a>
+        <a href="#visit">Visit the kiosk</a>
+        <a href="#faq">Questions</a>
       </nav>
 
-      <!-- Right Header Actions (Search, Wishlist, Bag) -->
-      <div class="flex items-center gap-3">
-        
-        <!-- Search bar -->
-        <div class="relative hidden sm:block w-44 lg:w-56">
-          <input 
-            type="text" 
-            id="search-input"
-            placeholder="Search vibes, models..." 
-            class="w-full bg-slate-100/90 hover:bg-slate-100 focus:bg-white text-xs font-medium rounded-full pl-9 pr-3 py-2.5 border border-slate-200/80 focus:outline-none focus:ring-2 focus:ring-pink-500/30 focus:border-pink-500 transition-all">
-          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-        </div>
-
-        <!-- Wishlist Heart Button -->
-        <button 
-          onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})"
-          class="relative w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-pink-600 hover:border-pink-300 transition-colors shadow-sm" 
-          aria-label="Wishlist">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-          </svg>
-          <span id="wishlist-badge" class="hidden absolute -top-1 -right-1 w-5 h-5 rounded-full bg-pink-600 text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">0</span>
+      <div class="site-header__actions">
+        <span class="open-status" id="open-status" aria-live="polite"></span>
+        <button class="bag-btn" id="bag-btn" type="button" aria-haspopup="dialog" aria-controls="bag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span>Bag</span>
+          <span class="bag-btn__count" id="bag-count">0</span>
         </button>
-
-        <!-- Shopping Bag Trigger Button -->
-        <button 
-          id="cart-trigger-btn" 
-          class="relative flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-pink-600 text-white transition-all shadow-md hover:shadow-pink-500/25 active:scale-95 group" 
-          aria-label="Open Shopping Bag">
-          <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-          </svg>
-          <div class="hidden sm:flex flex-col text-left leading-none">
-            <span class="text-[10px] font-medium text-slate-300">Bag</span>
-            <span id="cart-nav-total" class="text-xs font-black">₹0</span>
-          </div>
-          <span id="cart-badge" class="hidden w-5 h-5 rounded-full bg-pink-500 text-white text-[11px] font-black flex items-center justify-center border-2 border-slate-900">
-            0
-          </span>
-        </button>
-
       </div>
     </div>
   </header>
 
-  <!-- MAIN HERO SECTION WITH DYNAMIC MALL OFFERS & REAL COVER PHOTO SHOWCASE -->
-  <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden texture-grid">
-    
-    <!-- Decorative Ambient Glows -->
-    <div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-pink-500/15 blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-10 right-0 w-96 h-96 rounded-full bg-lime-400/15 blur-3xl pointer-events-none"></div>
-    <div class="absolute top-10 right-1/4 w-80 h-80 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-        
-        <!-- Left Column: Copy & Dynamic Offer Banner -->
-        <div class="lg:col-span-7 flex flex-col items-start text-left">
-          
-          <!-- Live Mall Offer Tag -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-bold uppercase tracking-wider mb-6 shadow-sm border border-slate-700">
-            <span class="text-pink-400">🔥</span>
-            <span id="hero-tag">MALL KIOSK SPECIAL</span>
-            <span class="bg-pink-500/20 text-pink-300 text-[10px] px-2 py-0.5 rounded-full font-black">TODAY ONLY</span>
+  <main id="top">
+    <!-- HERO: the kiosk display wall -->
+    <section class="hero">
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <h1 class="hero__title">Pick a case. We fit it while you wait.</h1>
+          <p class="hero__lede">Prints, clear MagSafe and drop-proof armour for iPhone, Galaxy and Pixel. Try any case on your own phone at our Level&nbsp;2 kiosk before you pay.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#shop">Browse cases</a>
+            <a class="btn btn--ghost" href="#visit">Find the kiosk</a>
           </div>
-
-          <!-- Dynamic Headline -->
-          <h1 id="hero-headline" class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.08] tracking-tight mb-6">
-            Buy 2 Cases, Get the 3rd <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600">100% FREE!</span>
-          </h1>
-
-          <!-- Subheadline -->
-          <p id="hero-subhead" class="text-slate-600 text-base sm:text-lg max-w-xl mb-9 leading-relaxed font-normal">
-            Mix & match across all trending vibes: Y2K street prints, aesthetic pastels, non-yellowing MagSafe, and 18ft heavy-duty drop armor. Grab yours at Level 2 Grand Galleria!
-          </p>
-
-          <!-- CTAs & Trust Badges -->
-          <div class="flex flex-wrap items-center gap-4 mb-9 w-full sm:w-auto">
-            <button 
-              id="hero-cta" 
-              class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-pink-600 hover:bg-pink-700 active:scale-95 text-white font-extrabold text-base shadow-xl shadow-pink-500/30 transition-all flex items-center justify-center gap-2 group">
-              <span>Claim Mall Deal</span>
-              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </button>
-
-            <a 
-              href="#products-section" 
-              class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-base border-2 border-slate-200/80 shadow-sm transition-all flex items-center justify-center gap-2 hover:border-pink-400">
-              <span>Explore All Cases</span>
-            </a>
-          </div>
-
-          <!-- Slide Controls & Offer Badge -->
-          <div class="flex flex-wrap items-center gap-4 pt-5 border-t border-slate-200/80 w-full">
-            <div class="flex items-center gap-2" id="hero-dots">
-              <!-- Rendered via JS -->
-            </div>
-            <span class="text-slate-300">|</span>
-            <div class="flex items-center gap-2 text-xs font-bold text-slate-600">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span id="hero-offer-badge">3-for-2 Deal Auto-Applies in Cart</span>
-            </div>
-          </div>
-
+          <dl class="hero__facts">
+            <div><dt>From</dt><dd>₹699</dd></div>
+            <div><dt>Fitting time</dt><dd>About 5 min</dd></div>
+            <div><dt>Screen guard</dt><dd>Free</dd></div>
+          </dl>
         </div>
 
-        <!-- Right Column: REAL ORIGINAL CASE PHOTO HERO SHOWCASE -->
-        <div class="lg:col-span-5 relative flex flex-col items-center justify-center">
-          
-          <!-- Container Stage -->
-          <div class="relative w-[340px] sm:w-[420px] h-[460px] sm:h-[500px] rounded-3xl p-3 flex items-center justify-center border-2 border-white shadow-2xl overflow-hidden bg-gradient-to-tr from-pink-100 via-purple-50 to-amber-50">
-            
-            <!-- Real Original Case Photo Display -->
-            <div id="hero-view-photo" class="relative w-full h-full rounded-2xl overflow-hidden group">
-              <img 
-                src="assets/images/case-blue-dreamer.jpg" 
-                alt="Phone Case Vintage Blue Dreamer Original Phone Case" 
-                class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
-              />
-              
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-slate-950/20"></div>
-
-              <!-- Top Mall Tag -->
-              <div class="absolute top-4 left-4 z-20 glass-panel px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-2 border border-white/60">
-                <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
-                <span class="text-[11px] font-black text-slate-900 tracking-wide">MALL BESTSELLER • LEVEL 2</span>
-              </div>
-
-              <!-- Bottom Overlay Caption -->
-              <div class="absolute bottom-4 left-4 right-4 z-20 text-white">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p class="text-[11px] text-pink-300 font-bold uppercase tracking-widest">Featured In-Stock Drop 🔥</p>
-                    <h3 class="font-display font-black text-lg">Vintage Blue Dreamer &amp; GT</h3>
-                  </div>
-                  <span class="px-3 py-1 rounded-xl bg-pink-500/95 text-white font-black text-sm shadow-md">
-                    ₹849
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Floating Feature Pills -->
-            <div class="absolute -top-3 -left-3 sm:-left-5 z-20 glass-panel px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2 animate-float-1 border border-white">
-              <span class="w-7 h-7 rounded-xl bg-pink-500 text-white flex items-center justify-center text-xs font-bold shadow-md">🛡️</span>
-              <div>
-                <p class="text-[9px] font-bold text-slate-400 uppercase leading-none">Drop Guard</p>
-                <p class="text-xs font-extrabold text-slate-900">14ft Tested</p>
-              </div>
-            </div>
-
-            <div class="absolute top-1/3 -right-3 sm:-right-6 z-20 glass-panel px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2 animate-float-2 border border-white">
-              <span class="w-7 h-7 rounded-xl bg-lime-400 text-slate-950 flex items-center justify-center text-xs font-black shadow-md">🧲</span>
-              <div>
-                <p class="text-[9px] font-bold text-slate-400 uppercase leading-none">MagSafe Ready</p>
-                <p class="text-xs font-extrabold text-slate-900">2X Strong Lock</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- QUICK VALUE BANNER (MALL PERKS AT A GLANCE) -->
-  <section class="border-y border-slate-200/80 bg-white py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-        
-        <div class="flex items-center gap-4 p-2">
-          <div class="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center text-xl flex-shrink-0">
-            🎁
-          </div>
-          <div>
-            <h4 class="font-extrabold text-sm text-slate-900 leading-tight">Buy 2 Get 1 Free</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Auto applied in bag</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4 p-2">
-          <div class="w-12 h-12 rounded-2xl bg-lime-50 text-lime-700 flex items-center justify-center text-xl flex-shrink-0">
-            ⚡
-          </div>
-          <div>
-            <h4 class="font-extrabold text-sm text-slate-900 leading-tight">Instant Kiosk Fitting</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Try on before you buy</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4 p-2">
-          <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl flex-shrink-0">
-            🛡️
-          </div>
-          <div>
-            <h4 class="font-extrabold text-sm text-slate-900 leading-tight">Free Screen Guard</h4>
-            <p class="text-xs text-slate-500 mt-0.5">With every case purchase</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4 p-2">
-          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl flex-shrink-0">
-            🔄
-          </div>
-          <div>
-            <h4 class="font-extrabold text-sm text-slate-900 leading-tight">₹150 Trade-In Credit</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Recycle any old case</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: SHOP BY VIBE (CATEGORY FILTER) -->
-  <section id="shop-vibe" class="pt-20 pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10">
-      <div>
-        <div class="inline-flex items-center gap-2 text-pink-600 font-extrabold text-xs uppercase tracking-wider mb-2">
-          <span>✨ Curated Collections</span>
-        </div>
-        <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">
-          Shop by <span class="text-pink-600">Vibe</span>
-        </h2>
-        <p class="text-slate-500 text-sm mt-1.5">Select your aesthetic or filter by your specific smartphone model.</p>
-      </div>
-
-      <!-- Quick Model Filter Dropdown & Sort -->
-      <div class="flex flex-wrap items-center gap-3">
-        <!-- Model Dropdown -->
-        <div class="flex items-center gap-2 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm">
-          <label for="model-filter-select" class="text-xs font-bold text-slate-500 flex items-center gap-1">
-            <span>📱 Device:</span>
-          </label>
-          <select id="model-filter-select" class="text-xs font-bold text-slate-900 bg-transparent focus:outline-none cursor-pointer">
-            <option value="all">All Compatible Phones</option>
-            <option value="iPhone 16 Pro Max">iPhone 16 Pro Max</option>
-            <option value="iPhone 16 Pro">iPhone 16 Pro</option>
-            <option value="iPhone 16">iPhone 16 / Plus</option>
-            <option value="iPhone 15">iPhone 15 Series</option>
-            <option value="Galaxy S25">Samsung Galaxy S25 / Ultra</option>
-            <option value="Galaxy S24">Samsung Galaxy S24</option>
-            <option value="Pixel 9">Google Pixel 9 / Pro</option>
-          </select>
-        </div>
-
-        <!-- Sort Select -->
-        <div class="flex items-center gap-2 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm">
-          <label for="sort-select" class="text-xs font-bold text-slate-500">Sort:</label>
-          <select id="sort-select" class="text-xs font-bold text-slate-900 bg-transparent focus:outline-none cursor-pointer">
-            <option value="featured">Featured / Mall Faves</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Highest Customer Rating</option>
-          </select>
+        <div class="wall" aria-label="Bestsellers on the wall this week">
+          <figure class="wall__case wall__case--a">
+            <img src="assets/images/case-blue-dreamer.jpg" alt="Clear case with blue ink print and vintage car stamps" width="682" height="1024">
+            <span class="sticker">₹849</span>
+          </figure>
+          <figure class="wall__case wall__case--b">
+            <img src="assets/images/case-strawberry.jpg" alt="Pink silicone case with 3D strawberry charms" width="1024" height="1024">
+            <span class="sticker">₹699</span>
+          </figure>
+          <figure class="wall__case wall__case--c">
+            <img src="assets/images/case-stained-glass-raven.jpg" alt="Stained-glass illustrated case on a Galaxy phone" width="736" height="736">
+            <span class="sticker">₹899</span>
+          </figure>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- VIBE TAB PILLS -->
-    <div class="flex items-center gap-3 overflow-x-auto pb-4 no-scrollbar">
-      <button 
-        data-vibe="all"
-        class="vibe-tab active px-5 py-3 rounded-2xl border border-slate-200 bg-white font-bold text-xs sm:text-sm text-slate-700 whitespace-nowrap transition-all flex items-center gap-2 hover:border-slate-900">
-        <span>✨</span>
-        <span>All Vibes</span>
-        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-extrabold">12</span>
-      </button>
-
-      <button 
-        data-vibe="y2k"
-        class="vibe-tab px-5 py-3 rounded-2xl border border-slate-200 bg-white font-bold text-xs sm:text-sm text-slate-700 whitespace-nowrap transition-all flex items-center gap-2 hover:border-slate-900">
-        <span>🪩</span>
-        <span>Y2K Retro & Street</span>
-      </button>
-
-      <button 
-        data-vibe="cute"
-        class="vibe-tab px-5 py-3 rounded-2xl border border-slate-200 bg-white font-bold text-xs sm:text-sm text-slate-700 whitespace-nowrap transition-all flex items-center gap-2 hover:border-slate-900">
-        <span>🌸</span>
-        <span>Cute & Aesthetic</span>
-      </button>
-
-      <button 
-        data-vibe="armor"
-        class="vibe-tab px-5 py-3 rounded-2xl border border-slate-200 bg-white font-bold text-xs sm:text-sm text-slate-700 whitespace-nowrap transition-all flex items-center gap-2 hover:border-slate-900">
-        <span>🛡️</span>
-        <span>Heavy-Duty Armor</span>
-      </button>
-
-      <button 
-        data-vibe="magsafe"
-        class="vibe-tab px-5 py-3 rounded-2xl border border-slate-200 bg-white font-bold text-xs sm:text-sm text-slate-700 whitespace-nowrap transition-all flex items-center gap-2 hover:border-slate-900">
-        <span>🧲</span>
-        <span>Clear MagSafe</span>
-      </button>
-
-      <button 
-        data-vibe="neon"
-        class="vibe-tab px-5 py-3 rounded-2xl border border-slate-200 bg-white font-bold text-xs sm:text-sm text-slate-700 whitespace-nowrap transition-all flex items-center gap-2 hover:border-slate-900">
-        <span>⚡</span>
-        <span>Neon / Cyber Glow</span>
-      </button>
-    </div>
-  </section>
-
-  <!-- SECTION: TRENDING PRODUCTS GRID WITH REAL COVER PHOTO SWITCHER -->
-  <section id="products-section" class="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-      <div>
-        <p id="product-count" class="text-xs font-bold text-slate-500 uppercase tracking-wider">
-          Showing 12 of 12 trending cases
-        </p>
+    <!-- THE DEAL -->
+    <section class="deal" aria-labelledby="deal-title">
+      <div class="wrap deal__inner">
+        <h2 id="deal-title" class="deal__title">Three cases, pay for two.</h2>
+        <p class="deal__text">Mix any designs and any phone models. The lowest-priced case in every three comes off automatically, in your bag and at the counter.</p>
+        <ul class="deal__perks">
+          <li>Free tempered-glass screen guard, fitted bubble-free</li>
+          <li>Try every case on your phone before buying</li>
+          <li>₹150 off when you hand in an old case</li>
+        </ul>
       </div>
+    </section>
 
-      <!-- Filters Action -->
-      <div class="flex items-center gap-3">
-        <button onclick="resetFilters()" class="px-4 py-2 rounded-full text-xs font-bold text-pink-600 hover:text-pink-700 bg-pink-50 hover:bg-pink-100 transition-colors flex items-center gap-1.5 border border-pink-200">
-          <span>🔄</span>
-          <span>Reset filters</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Product Grid Container (Populated via app.js) -->
-    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 sm:gap-8">
-      <!-- Dynamic Products Rendered Here -->
-    </div>
-  </section>
-
-  <!-- SECTION: STORE LOCATOR / "VISIT OUR MALL KIOSK" (WITH REAL KIOSK PHOTOGRAPHY) -->
-  <section id="mall-kiosk-info" class="py-24 bg-white border-y border-slate-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        <!-- Left Column: Mall Kiosk Experience Info -->
-        <div class="lg:col-span-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100 text-pink-700 font-extrabold text-xs uppercase tracking-wider mb-4">
-            <span>📍 Grand Galleria Mall</span>
-          </div>
-          
-          <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900 leading-tight mb-5">
-            Visit Our Phone Case Kiosk on <span class="text-pink-600">Level 2</span>
-          </h2>
-          
-          <p class="text-slate-600 text-base leading-relaxed mb-8">
-            Come touch the finishes in person! Try our MagSafe testing dock, get your case fitted instantly to your phone, and claim a complimentary 9H tempered glass screen protector installed by our case pros.
-          </p>
-
-          <!-- Kiosk Location Highlight Card -->
-          <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 shadow-sm mb-8">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl flex-shrink-0">
-                🏬
-              </div>
-              <div class="flex-1">
-                <h3 class="font-extrabold text-base text-slate-900">Kiosk Spot #K-204 (Center Court)</h3>
-                <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Level 2 Promenade, right in front of the Glass Panoramic Elevator (directly between Apple Store & Boba Guys).
-                </p>
-                
-                <div class="mt-4 pt-4 border-t border-slate-200/60 flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase">Today's Operating Hours</p>
-                    <p id="kiosk-time-indicator" class="text-xs font-black text-slate-800">
-                      Open Today (10:00 AM - 9:30 PM)
-                    </p>
-                  </div>
-                  <span id="kiosk-live-countdown" class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">
-                    Walk-ins Welcome • Open Now
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4 Kiosk Exclusive Perks -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-3.5 shadow-sm">
-              <span class="text-2xl">📱</span>
-              <div>
-                <p class="text-xs font-black text-slate-900">Free Screen Protector</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Installed bubble-free</p>
-              </div>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-3.5 shadow-sm">
-              <span class="text-2xl">🧼</span>
-              <div>
-                <p class="text-xs font-black text-slate-900">UV Phone Sanitizer</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">60-sec free wash station</p>
-              </div>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-3.5 shadow-sm">
-              <span class="text-2xl">🧲</span>
-              <div>
-                <p class="text-xs font-black text-slate-900">MagSafe Testing Dock</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Test car mounts & stands</p>
-              </div>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-3.5 shadow-sm">
-              <span class="text-2xl">♻️</span>
-              <div>
-                <p class="text-xs font-black text-slate-900">₹150 Trade-In Credit</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Recycle any old case</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex flex-wrap items-center gap-3.5">
-            <button 
-              id="copy-mall-address-btn" 
-              class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              <span>Copy Mall Address</span>
-            </button>
-
-            <a 
-              href="#products-section" 
-              class="px-6 py-3.5 rounded-2xl bg-pink-50 hover:bg-pink-100 text-pink-700 font-bold text-xs border border-pink-200 transition-colors shadow-sm">
-              Explore Collection
-            </a>
-          </div>
-
+    <!-- SHOP -->
+    <section class="shop" id="shop" aria-labelledby="shop-title">
+      <div class="wrap">
+        <div class="shop__head">
+          <h2 id="shop-title" class="section-title">On the wall right now</h2>
+          <p class="shop__count" id="shop-count" aria-live="polite"></p>
         </div>
 
-        <!-- Right Column: MALL DIRECTORY & INTERACTIVE LEVEL 2 KIOSK PLAN -->
-        <div class="lg:col-span-6">
-          
-          <!-- Mall Level 2 Directory Plan -->
-          <div class="relative bg-gradient-to-br from-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-2xl border border-slate-800 overflow-hidden h-[420px] flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-2">
-              <div>
-                <h3 class="font-display font-extrabold text-lg">Mall Directory • Level 2</h3>
-                <p class="text-xs text-slate-400">Center Court Promenade Floor Map</p>
-              </div>
-              <span class="text-xs font-bold text-lime-400 bg-lime-400/10 px-3 py-1 rounded-full border border-lime-400/30">
-                Interactive Kiosk Pin
-              </span>
-            </div>
-
-            <!-- Stylized Mall Level Plan View (SVG & CSS Vector) -->
-            <div class="relative w-full h-64 bg-slate-950/70 rounded-2xl border border-white/10 p-4 flex flex-col justify-between overflow-hidden">
-              <div class="flex justify-between items-center text-xs font-bold text-slate-400">
-                <div class="p-2.5 bg-white/5 rounded-xl border border-white/10 text-center w-28">
-                  <span class="text-slate-300">🍎 Apple Store</span>
-                </div>
-                <div class="text-slate-600 text-xs tracking-widest font-mono">=== SKYWALK ===</div>
-                <div class="p-2.5 bg-white/5 rounded-xl border border-white/10 text-center w-28">
-                  <span class="text-slate-300">🧋 Boba Guys</span>
-                </div>
-              </div>
-
-              <!-- Center Court Kiosk Pin Stage -->
-              <div class="flex items-center justify-center relative py-3">
-                <div class="absolute w-20 h-20 rounded-full bg-pink-500/20 animate-ping pointer-events-none"></div>
-                <div class="relative z-10 bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-3 rounded-2xl shadow-2xl border-2 border-white text-center">
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-sm">📍</span>
-                    <span class="font-black text-xs text-white">PHONE CASE KIOSK #K-204</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex justify-between items-center text-xs font-bold text-slate-400">
-                <div class="p-2 bg-white/5 rounded-xl border border-white/10 text-center w-24">
-                  <span>🛗 Elevator</span>
-                </div>
-                <div class="p-2 bg-white/5 rounded-xl border border-white/10 text-center w-24">
-                  <span>☕ Blue Bottle</span>
-                </div>
-                <div class="p-2 bg-white/5 rounded-xl border border-white/10 text-center w-24">
-                  <span>🛍️ Nordstrom</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-2 flex items-center justify-between text-xs text-slate-400">
-              <span>🚗 Parking: Level 2 Pink Deck</span>
-              <span class="text-pink-400 font-bold">Hotline: (555) 234-7890</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: SOCIAL SELFIE WALL (#PhoneCaseFam) -->
-  <section class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-xl mx-auto mb-12">
-        <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-900">
-          Spotted at the Mall: <span class="text-pink-600">#PhoneCaseFam</span>
-        </h3>
-        <p class="text-xs sm:text-sm text-slate-500 mt-1.5">
-          Real mirror selfies & verified reviews from shoppers at our Galleria Kiosk.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">★★★★★</div>
-            <p class="text-xs text-slate-700 italic leading-relaxed">
-              "The vintage blue GT coupe case looks 10x better in person. The ink print quality and camera bumper protection are top notch!"
-            </p>
-          </div>
-          <div class="flex items-center gap-3 mt-5 pt-4 border-t border-slate-100">
-            <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">SL</div>
-            <div>
-              <p class="text-xs font-bold text-slate-900">Sierra L.</p>
-              <p class="text-[10px] text-slate-400">Verified Mall Shopper • iPhone 16 Pro</p>
-            </div>
+        <div class="filters">
+          <div class="chips" role="group" aria-label="Filter by style" id="chips"></div>
+          <div class="filters__row">
+            <label class="field field--search">
+              <span class="visually-hidden">Search cases</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+              <input type="search" id="search" placeholder="Search cases" autocomplete="off">
+            </label>
+            <label class="field">
+              <span class="field__label">Phone</span>
+              <select id="device-filter">
+                <option value="all">All phones</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field__label">Sort</span>
+              <select id="sort">
+                <option value="featured">Bestsellers</option>
+                <option value="price-low">Price, low to high</option>
+                <option value="price-high">Price, high to low</option>
+              </select>
+            </label>
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">★★★★★</div>
-            <p class="text-xs text-slate-700 italic leading-relaxed">
-              "The Gothic Raven stained-glass case on my Galaxy S25 Ultra is a work of art. People keep asking me where in the mall I got it."
-            </p>
-          </div>
-          <div class="flex items-center gap-3 mt-5 pt-4 border-t border-slate-100">
-            <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">MK</div>
-            <div>
-              <p class="text-xs font-bold text-slate-900">Marcus K.</p>
-              <p class="text-[10px] text-slate-400">Verified Mall Shopper • Galaxy S25</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">★★★★★</div>
-            <p class="text-xs text-slate-700 italic leading-relaxed">
-              "Did the Buy 2 Get 1 Free deal with my besties. Also got free screen protectors put on with ZERO bubbles. Best kiosk in the mall!"
-            </p>
-          </div>
-          <div class="flex items-center gap-3 mt-5 pt-4 border-t border-slate-100">
-            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs">JL</div>
-            <div>
-              <p class="text-xs font-bold text-slate-900">Jasmine & Chloe</p>
-              <p class="text-[10px] text-slate-400">Verified Mall Shoppers • iPhone 16</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">★★★★★</div>
-            <p class="text-xs text-slate-700 italic leading-relaxed">
-              "Zero-yellowing MagSafe is the only clear case that hasn't turned nasty orange after 6 months. 10/10 recommend."
-            </p>
-          </div>
-          <div class="flex items-center gap-3 mt-5 pt-4 border-t border-slate-100">
-            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">DT</div>
-            <div>
-              <p class="text-xs font-bold text-slate-900">Devon T.</p>
-              <p class="text-[10px] text-slate-400">Verified Mall Shopper • Pixel 9 Pro</p>
-            </div>
-          </div>
-        </div>
-
+        <ul class="grid" id="grid"></ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SECTION: QUICK FAQS ACCORDION -->
-  <section id="faqs" class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14">
-      <div class="inline-flex items-center gap-2 text-pink-600 font-extrabold text-xs uppercase tracking-wider mb-2">
-        <span>💡 Got Questions?</span>
-      </div>
-      <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">
-        Frequently Asked Questions
-      </h2>
-      <p class="text-slate-500 text-sm mt-1.5">Everything you need to know about our mall deals, device fitting, and guarantees.</p>
-    </div>
+    <!-- VISIT -->
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit__inner">
+        <figure class="visit__photo">
+          <img src="assets/images/hero-cover.jpg" alt="Shopper taking a mirror photo with a holographic case" width="1100" height="614" loading="lazy">
+        </figure>
+        <div class="visit__info">
+          <h2 id="visit-title" class="section-title">Come try them on</h2>
+          <p class="visit__text">Every case on the site hangs on our wall. Bring your phone, snap a few on, and we'll fit the screen guard while you decide.</p>
 
-    <div class="space-y-4">
-      
-      <!-- FAQ 1 -->
-      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
-        <button 
-          class="faq-toggle w-full px-6 py-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors" 
-          aria-expanded="false">
-          <span>How does the 'Buy 2 Get 1 Free' mall deal work?</span>
-          <svg class="faq-icon w-5 h-5 text-slate-400 transform transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-          Simply add any 3 cases to your bag (online or at our Level 2 kiosk). Our system automatically discounts the 3rd case to ₹0! You can mix and match between any phone model and style (Y2K, Heavy-Duty Armor, Clear MagSafe, or Silicone Soft-Touch).
+          <address class="visit__address">
+            <strong data-shop="kiosk">Kiosk K-204, Level 2</strong>
+            <span data-shop="mall">Grand Galleria Mall</span>
+            <span data-shop="landmark">Centre court, beside the glass lift</span>
+          </address>
+
+          <table class="hours" aria-label="Opening hours">
+            <tbody id="hours-body"></tbody>
+          </table>
+
+          <div class="visit__actions">
+            <a class="btn btn--primary" id="whatsapp-link" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>
+            <a class="btn btn--ghost" id="directions-link" href="#" target="_blank" rel="noopener">Get directions</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- FAQ 2 -->
-      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
-        <button 
-          class="faq-toggle w-full px-6 py-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors" 
-          aria-expanded="false">
-          <span>Can I test or try on cases on my phone before buying?</span>
-          <svg class="faq-icon w-5 h-5 text-slate-400 transform transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-          Yes, absolutely! At our Level 2 Galleria Kiosk (#K-204), all designs are on open interactive display racks. You can snap any case directly onto your phone to feel the button clickiness, grip texture, and test MagSafe charging before completing your purchase.
+    <!-- REVIEWS (sample copy: replace with the shop's real Google reviews before launch) -->
+    <section class="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <h2 id="reviews-title" class="section-title">What people say at the counter</h2>
+        <ul class="reviews__list">
+          <li>
+            <blockquote>“Tried four cases on my 16 Pro before picking the blue print one. The guy fitted the screen guard in two minutes, no bubbles.”</blockquote>
+            <p class="reviews__who">Ananya, iPhone 16 Pro</p>
+          </li>
+          <li>
+            <blockquote>“Got three cases for me and my sisters and paid for two. The strawberry one is even cuter in hand.”</blockquote>
+            <p class="reviews__who">Simran, iPhone 15</p>
+          </li>
+          <li>
+            <blockquote>“Hard to find good cases for a Pixel in a mall. They had the armour one in stock and it fits perfectly.”</blockquote>
+            <p class="reviews__who">Rohit, Pixel 9 Pro</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__inner">
+        <h2 id="faq-title" class="section-title">Questions</h2>
+        <div class="faq__list">
+          <details>
+            <summary>How does buy 3, pay for 2 work?</summary>
+            <p>Put any three cases in your bag. The lowest-priced one is taken off the total. Six cases means two free, and so on. You can mix designs and phone models.</p>
+          </details>
+          <details>
+            <summary>Can I try a case before I buy it?</summary>
+            <p>Yes. Every design on this page is on display at the kiosk. Snap it onto your own phone, check the buttons and the camera cut-out, then decide.</p>
+          </details>
+          <details>
+            <summary>Is the screen guard really free?</summary>
+            <p>Yes, one 9H tempered-glass guard with every case, fitted at the counter. If you already have one, we'll give you a cleaning cloth instead.</p>
+          </details>
+          <details>
+            <summary>Will a clear case turn yellow?</summary>
+            <p>Our clear cases use anti-yellowing polycarbonate. If one turns yellow within a year, bring it back and we'll swap it.</p>
+          </details>
+          <details>
+            <summary>What if I change my phone soon after?</summary>
+            <p>Within 30 days, bring the case back and we'll swap it for the same design in your new model for ₹99.</p>
+          </details>
+          <details>
+            <summary>How do I pay?</summary>
+            <p>UPI, cards or cash at the kiosk. Reserving on WhatsApp is free; you pay when you collect.</p>
+          </details>
         </div>
       </div>
+    </section>
+  </main>
 
-      <!-- FAQ 3 -->
-      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
-        <button 
-          class="faq-toggle w-full px-6 py-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors" 
-          aria-expanded="false">
-          <span>Will clear MagSafe cases turn yellow over time?</span>
-          <svg class="faq-icon w-5 h-5 text-slate-400 transform transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-          No! Our ZeroYellow™ cases are molded using optical-grade German Bayer polycarbonate with anti-UV molecular stabilizers. If your clear case shows any discoloration within 2 years, walk into our kiosk for a free instant replacement, no questions asked.
-        </div>
-      </div>
-
-      <!-- FAQ 4 -->
-      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
-        <button 
-          class="faq-toggle w-full px-6 py-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors" 
-          aria-expanded="false">
-          <span>Do you really install screen protectors for free?</span>
-          <svg class="faq-icon w-5 h-5 text-slate-400 transform transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-          Yes! Every case purchase comes with a complimentary 9H tempered glass screen protector. Our kiosk team uses precision alignment alignment frames to apply it with zero dust and zero bubbles right at the counter.
-        </div>
-      </div>
-
-      <!-- FAQ 5 -->
-      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
-        <button 
-          class="faq-toggle w-full px-6 py-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors" 
-          aria-expanded="false">
-          <span>What if I upgrade to a new phone next month?</span>
-          <svg class="faq-icon w-5 h-5 text-slate-400 transform transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-          We have a 45-day Phone Upgrade Guarantee. If you switch phone models within 45 days of purchase, bring your Phone Case case back to our mall kiosk and we will swap it for the matching design for your new phone for just ₹99.
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- VIP MALL CLUB NEWSLETTER -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-    <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 rounded-3xl p-8 sm:p-14 text-white shadow-2xl relative overflow-hidden">
-      <div class="max-w-2xl relative z-10">
-        <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full text-lime-300">
-          VIP MALL PASS
-        </span>
-        <h3 class="font-display font-black text-2xl sm:text-4xl tracking-tight mt-3 mb-2.5">
-          Get 15% Off Your Next Kiosk Purchase
-        </h3>
-        <p class="text-xs sm:text-sm text-pink-100 mb-7 leading-relaxed">
-          Join 25,000+ Phone Case insiders. Receive flash mall drops, limited edition restock notifications, and member-only perks.
-        </p>
-
-        <form id="vip-signup-form" class="flex flex-col sm:flex-row gap-3">
-          <input 
-            type="email" 
-            id="vip-email"
-            placeholder="Enter your email" 
-            required
-            class="flex-1 px-5 py-3.5 rounded-2xl bg-white/10 placeholder-pink-200 text-white font-medium text-sm border border-white/20 focus:outline-none focus:ring-2 focus:ring-white">
-          <button 
-            type="submit"
-            class="px-7 py-3.5 rounded-2xl bg-white text-slate-900 font-extrabold text-sm hover:bg-lime-300 transition-colors shadow-lg">
-            Unlock 15% Code
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 text-slate-400 text-xs py-16 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-        
-        <div>
-          <div class="flex items-center gap-2 mb-3.5">
-            <span class="font-display font-extrabold text-xl text-white">Phone<span class="text-pink-500">Case</span></span>
-            <span class="text-[10px] font-bold text-lime-400 bg-lime-400/10 px-2 py-0.5 rounded">MALL KIOSK</span>
-          </div>
-          <p class="text-slate-400 leading-relaxed mb-4">
-            Trendy, drop-tested phone cases, high-power MagSafe, and free tempered glass installation at Grand Galleria Mall.
-          </p>
-          <p class="text-slate-300 font-bold">📍 Grand Galleria Mall • Level 2, Kiosk #K-204</p>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Shop Vibes</h4>
-          <ul class="space-y-2.5">
-            <li><a href="#shop-vibe" onclick="setVibeFilter('y2k')" class="hover:text-pink-400 transition-colors">Y2K Retro & Street</a></li>
-            <li><a href="#shop-vibe" onclick="setVibeFilter('cute')" class="hover:text-pink-400 transition-colors">Cute & Aesthetic Pastels</a></li>
-            <li><a href="#shop-vibe" onclick="setVibeFilter('armor')" class="hover:text-pink-400 transition-colors">18ft Heavy-Duty Armor</a></li>
-            <li><a href="#shop-vibe" onclick="setVibeFilter('magsafe')" class="hover:text-pink-400 transition-colors">Clear ZeroYellow™ MagSafe</a></li>
-            <li><a href="#shop-vibe" onclick="setVibeFilter('neon')" class="hover:text-pink-400 transition-colors">Neon Cyber Glow</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Mall Kiosk Hours</h4>
-          <ul class="space-y-2">
-            <li class="flex justify-between"><span class="text-slate-300">Mon - Fri:</span> <span>10:00 AM - 9:30 PM</span></li>
-            <li class="flex justify-between"><span class="text-slate-300">Saturday:</span> <span>10:00 AM - 9:30 PM</span></li>
-            <li class="flex justify-between"><span class="text-slate-300">Sunday:</span> <span>11:00 AM - 8:00 PM</span></li>
-            <li class="pt-2 text-emerald-400 font-bold">● Free Parking in Pink Ramp</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Payment & Guarantees</h4>
-          <p class="text-slate-400 mb-4 leading-relaxed">We accept UPI, Google Pay, PhonePe, Cards, NetBanking, and Cash at our Level 2 kiosk counter.</p>
-          <div class="flex flex-wrap gap-2 text-[10px] font-bold text-slate-300">
-            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">UPI / QR Code</span>
-            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">GPay & PhonePe</span>
-            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">Cards & NetBanking</span>
-            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">Cash at Kiosk</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
-        <p>© 2026 Phone Case Kiosk Retail Inc. All rights reserved.</p>
-        <div class="flex items-center gap-6">
-          <a href="#" class="hover:text-white transition-colors">Privacy</a>
-          <a href="#" class="hover:text-white transition-colors">Terms</a>
-          <a href="#" class="hover:text-white transition-colors">Mall Kiosk Guide</a>
-        </div>
-      </div>
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p class="wordmark wordmark--footer"><span data-shop="name">Phone Case</span></p>
+      <p><span data-shop="kiosk">Kiosk K-204, Level 2</span>, <span data-shop="mall">Grand Galleria Mall</span></p>
+      <p>UPI, cards and cash accepted</p>
+      <p class="site-footer__copy">© <span id="year">2026</span> <span data-shop="name">Phone Case</span></p>
     </div>
   </footer>
 
-  <!-- ==================== OVERLAYS & MODALS ==================== -->
-
-  <!-- 1. SLIDE-OUT CART / SHOPPING BAG DRAWER -->
-  <div id="cart-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none drawer-backdrop"></div>
-  
-  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-white z-50 shadow-2xl flex flex-col justify-between transform translate-x-full drawer-content">
-    
-    <!-- Drawer Header -->
-    <div class="p-6 border-b border-slate-100 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="text-xl">🛍️</span>
-        <h3 class="font-display font-extrabold text-xl text-slate-900">Your Shopping Bag</h3>
-      </div>
-      <button id="close-cart-btn" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors" aria-label="Close Bag">
-        &times;
-      </button>
-    </div>
-
-    <!-- Free Item / Promo Banner -->
-    <div id="cart-promo-banner" class="px-6 py-2.5 bg-pink-50 border-b border-pink-100 hidden">
-      <!-- Injected via JS -->
-    </div>
-
-    <!-- Items List (Scrollable) -->
-    <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-2">
-      <!-- Injected via JS -->
-    </div>
-
-    <!-- Drawer Footer & Checkout Calculations -->
-    <div class="p-6 bg-slate-50 border-t border-slate-100">
-      
-      <!-- Promo code input -->
-      <div class="flex items-center gap-2 mb-3.5">
-        <input 
-          type="text" 
-          id="cart-promo-input" 
-          placeholder="Promo code (e.g. MALLPOP15)" 
-          class="flex-1 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-pink-500">
-        <button 
-          id="apply-promo-btn"
-          class="px-4 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-pink-600 transition-colors">
-          Apply
+  <!-- BAG -->
+  <dialog class="bag" id="bag" aria-labelledby="bag-title">
+    <div class="bag__panel">
+      <header class="bag__head">
+        <h2 id="bag-title">Your bag</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Close bag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
         </button>
-      </div>
-
-      <!-- Quick preset codes -->
-      <div class="flex items-center gap-1.5 mb-4 text-[10px] font-bold text-slate-500">
-        <span>Try:</span>
-        <button onclick="applyPromoCode('MALLPOP15')" class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 hover:bg-pink-100 hover:text-pink-700">MALLPOP15 (15% OFF)</button>
-        <button onclick="applyPromoCode('BUY2GET1')" class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 hover:bg-pink-100 hover:text-pink-700">BUY2GET1</button>
-      </div>
-
-      <!-- Calculation Lines -->
-      <div class="space-y-1.5 text-xs text-slate-600 mb-4">
-        <div class="flex justify-between">
-          <span>Subtotal</span>
-          <span id="cart-subtotal" class="font-extrabold text-slate-900">₹0</span>
-        </div>
-        <div id="cart-discount-row" class="flex justify-between text-pink-600 font-bold hidden">
-          <span>Discount Applied</span>
-          <span id="cart-discount">-₹0</span>
-        </div>
-        <div class="flex justify-between">
-          <span>Kiosk Screen Guard & Fitting</span>
-          <span class="text-emerald-600 font-bold">FREE</span>
-        </div>
-        <div class="flex justify-between text-base font-black text-slate-900 pt-2 border-t border-slate-200">
-          <span>Total</span>
-          <span id="cart-total">₹0</span>
-        </div>
-      </div>
-
-      <!-- Checkout Actions -->
-      <div class="flex flex-col gap-2">
-        <button 
-          onclick="proceedToCheckout('kiosk-pickup')"
-          class="w-full py-3.5 rounded-2xl bg-pink-600 hover:bg-pink-700 active:scale-95 text-white font-extrabold text-sm shadow-xl shadow-pink-500/25 transition-all flex items-center justify-center gap-2">
-          <span>⚡ Reserve for Kiosk Pickup</span>
-        </button>
-        <button 
-          onclick="proceedToCheckout('shipping')"
-          class="w-full py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200 transition-colors">
-          Ship to My Address (1-2 Days)
-        </button>
-      </div>
-
+      </header>
+      <div class="bag__progress" id="bag-progress"></div>
+      <ul class="bag__items" id="bag-items"></ul>
+      <footer class="bag__foot" id="bag-foot">
+        <dl class="bag__sums">
+          <div><dt>Subtotal</dt><dd id="bag-subtotal">₹0</dd></div>
+          <div class="bag__saving" id="bag-saving-row" hidden><dt>Buy 3, pay for 2</dt><dd id="bag-saving">−₹0</dd></div>
+          <div><dt>Screen guard fitting</dt><dd>Free</dd></div>
+          <div class="bag__total"><dt>Pay at the kiosk</dt><dd id="bag-total">₹0</dd></div>
+        </dl>
+        <button class="btn btn--primary btn--block" type="button" id="reserve-btn">Reserve on WhatsApp</button>
+        <p class="bag__note">We'll keep your cases aside for 24 hours. Pay by UPI, card or cash when you collect.</p>
+      </footer>
     </div>
-  </div>
+  </dialog>
 
-  <!-- 2. QUICK VIEW MODAL (WITH REAL COVER PHOTO + SPEC PREVIEW) -->
-  <div id="quick-view-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
-    <div id="qv-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-    
-    <div class="relative bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl z-10 border border-slate-100 max-h-[90vh] overflow-y-auto">
-      <button id="qv-close-btn" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-lg font-bold">
-        &times;
+  <!-- PRODUCT DETAIL -->
+  <dialog class="detail" id="detail" aria-labelledby="detail-title">
+    <div class="detail__panel">
+      <button class="icon-btn detail__close" type="button" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
-        <!-- Visual Case Preview -->
-        <div class="bg-slate-50 p-4 rounded-2xl flex items-center justify-center border border-slate-200/60 h-80 overflow-hidden relative">
-          <img id="qv-real-image" src="" alt="Case Cover" class="w-full h-full object-contain drop-shadow-md" />
-        </div>
-
-        <!-- Info & Config -->
-        <div>
-          <span id="qv-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-pink-100 text-pink-700 uppercase mb-2 inline-block">
-            Mall Bestseller
-          </span>
-          <h3 id="qv-title" class="font-display font-black text-2xl text-slate-900 mb-2">Case Title</h3>
-          
-          <div class="flex items-baseline gap-2 mb-3">
-            <span id="qv-price" class="text-2xl font-black text-slate-900">₹899</span>
-            <span id="qv-orig-price" class="text-xs text-slate-400 line-through">₹1,299</span>
-          </div>
-
-          <p id="qv-desc" class="text-xs text-slate-600 leading-relaxed mb-4">
-            Description goes here.
-          </p>
-
-          <!-- Model Picker -->
-          <div class="mb-5">
-            <label for="qv-model-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
-              Select Device:
-            </label>
-            <select id="qv-model-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-pink-500">
-              <!-- Models injected -->
-            </select>
-          </div>
-
-          <button 
-            id="qv-add-btn"
-            class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-pink-600 active:scale-95 text-white font-extrabold text-sm shadow-md transition-all flex items-center justify-center gap-2">
-            <span>Add to Bag</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-          </button>
-        </div>
+      <div class="detail__media">
+        <img id="detail-img" src="" alt="">
+      </div>
+      <div class="detail__body">
+        <p class="detail__style" id="detail-style"></p>
+        <h2 class="detail__title" id="detail-title"></h2>
+        <p class="detail__price"><span id="detail-price"></span> <s id="detail-mrp"></s></p>
+        <p class="detail__desc" id="detail-desc"></p>
+        <ul class="detail__specs" id="detail-specs"></ul>
+        <label class="field field--stacked">
+          <span class="field__label">Your phone</span>
+          <select id="detail-device"></select>
+        </label>
+        <button class="btn btn--primary btn--block" type="button" id="detail-add">Add to bag</button>
       </div>
     </div>
-  </div>
+  </dialog>
 
-  <!-- 3. CHECKOUT SUCCESS MODAL -->
-  <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
-    <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl z-10 border border-slate-100">
-      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
-        🎉
-      </div>
-      <h3 class="font-display font-black text-2xl text-slate-900 mb-1">Order Reserved!</h3>
-      <p class="text-xs text-slate-500 mb-4">
-        Your Phone Case order has been held at our Level 2 Galleria Kiosk desk.
-      </p>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-      <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 mb-6 text-left">
-        <div class="flex justify-between items-center mb-1 text-xs">
-          <span class="text-slate-500">Pickup Order #:</span>
-          <span id="modal-order-number" class="font-black text-slate-900 font-mono">CP-729481</span>
-        </div>
-        <div class="text-xs">
-          <span class="text-slate-500">Location:</span>
-          <p id="modal-pickup-type" class="font-bold text-slate-900 mt-0.5">
-            Level 2 Kiosk Express Pickup (Ready for walk-in collection)
-          </p>
-        </div>
-      </div>
-
-      <p class="text-[11px] text-slate-400 mb-6">
-        Show this screen at Kiosk #K-204 to claim your free screen protector and case!
-      </p>
-
-      <button 
-        id="checkout-modal-close"
-        class="w-full py-3.5 rounded-2xl bg-pink-600 hover:bg-pink-700 text-white font-extrabold text-sm shadow-md transition-colors">
-        Done & Return to Store
-      </button>
-    </div>
-  </div>
-
-  <!-- FLOATING TOAST NOTIFICATION CONTAINER -->
-  <div id="toast-container" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none">
-    <!-- Toasts injected dynamically -->
-  </div>
-
-  <!-- Application Script -->
   <script src="app.js"></script>
 </body>
 </html>

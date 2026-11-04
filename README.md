@@ -1,44 +1,29 @@
-# Phone Case — Trendy Mall Phone Case E-Commerce Experience (INR)
+# Phone Case — kiosk storefront mockup
 
-A modern, high-energy retail landing page and single-page web app for **Phone Case**, the trendy phone case kiosk located on Level 2 of Grand Galleria Mall.
+A one-page site for a phone case kiosk: browse the cases on the wall, see the buy-3-pay-for-2 deal, and reserve on WhatsApp to pay at the counter.
 
----
+Plain HTML, CSS and JavaScript. No build step, no frameworks.
 
-## 🇮🇳 Currency & Localized Retail Features (INR)
+## Before showing it to the shop
 
-All pricing and shopping logic is fully localized to **Indian Rupee (₹)**:
-- **Phone Case Catalog**: Prices starting from **₹699** to **₹1,199** (with savings up to 35% off MRP).
-- **Buy 2 Get 1 Free Mall Deal**: When 3 cases are added, the lowest-priced case is automatically discounted to **₹0**!
-- **Free Tempered Screen Guard**: Complimentary 9H glass protector installed bubble-free at the kiosk counter.
-- **Mall Kiosk Trade-In Credit**: **₹150 instant credit** when recycling any old phone case.
-- **Phone Upgrade Guarantee**: Swap your case for your upgraded device for just **₹99**.
-- **Payment Methods Supported**: UPI (Google Pay, PhonePe, Paytm), Debit/Credit Cards, NetBanking, and Cash at Kiosk counter.
+Everything shop-specific is at the top of `app.js`:
 
----
+- `SHOP` — name, mall, kiosk number, landmark, opening hours, WhatsApp number, maps search
+- `PRODUCTS` — names, prices, MRP, photos, compatible phones, specs
 
-## 📸 Real Cover Photos & Visual System
+The shop name in the header, footer and page title all come from `SHOP.name`.
 
-1. **Hero Showcase**:
-   - Features the authentic **Vintage Blue Dreamer & GT** case cover photo with crystal-clear bumper, vintage stamps, and drop-tested acrylic finish.
+Also replace before going live:
 
-2. **Product Catalog Real Photography**:
-   - Features real product covers: *Vintage Blue Dreamer & GT*, *FeatherLight Neon Lime*, *Gothic Raven Stained-Glass*, *Minimalist Velvet Matte Series*, *Pixel MagFit Dual-Armor Shield*, and more.
-   - Clean vertical cards with smooth hover zoom effects.
-   - **Quick View Modal**: Inspect high-resolution cover photos, device compatibility, and materials up close.
+- The three quotes in the reviews section of `index.html` are sample copy. Swap in real Google reviews.
+- Product photos in `assets/images/`. Use the shop's own photos where possible.
 
-3. **Mall Kiosk Storefront Experience**:
-   - Direct interactive Level 2 Mall Directory Floor Plan with Kiosk #K-204 location pin, landmarks (Apple, Boba Guys, Elevator), and operating hours.
+## Run locally
 
----
-
-## 🚀 Live Site & Local Development
-
-- **Live Site**: [https://saffronlabs.in/case/](https://saffronlabs.in/case/)
-- **GitHub Repository**: [https://github.com/saffron-labs/case](https://github.com/saffron-labs/case)
-
-To run locally:
 ```bash
 python -m http.server 3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Then open http://localhost:3000.
+
+Live: https://saffronlabs.in/case/
