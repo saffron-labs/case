@@ -1,8 +1,8 @@
 /*
  * Phone Case — kiosk storefront
  *
- * Everything shop-specific lives in SHOP and PRODUCTS below.
- * Swap in the client's real name, mall, hours and WhatsApp number before the pitch.
+ * Everything shop-specific lives in SHOP, PHONES and PRODUCTS below.
+ * Swap in the client's real name, mall, hours, WhatsApp number and stock before the pitch.
  */
 
 const SHOP = {
@@ -10,10 +10,11 @@ const SHOP = {
   mall: 'Grand Galleria Mall',
   kiosk: 'Kiosk K-204, Level 2',
   landmark: 'Centre court, beside the glass lift',
-  // Digits only with country code, e.g. '919876543210'. Leave empty and the
-  // reserve button opens WhatsApp with the order text so you can pick a chat.
+  // Digits only with country code, e.g. '919876543210'. Leave empty and WhatsApp
+  // opens with the message ready so you can pick the chat yourself.
   whatsapp: '',
   mapsQuery: 'Grand Galleria Mall',
+  restockDays: 2,
   // 0 = Sunday. Times are 24h, local.
   hours: [
     { day: 'Sunday', open: '11:00', close: '20:00' },
@@ -26,12 +27,29 @@ const SHOP = {
   ],
 };
 
+/* Phones people can search for. `brand` is matched too, so "samsung s24" works. */
+const PHONES = [
+  ...['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16 Plus', 'iPhone 16', 'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15', 'iPhone 14', 'iPhone 13'].map((name) => ({ brand: 'Apple', name })),
+  ...['Galaxy S25 Ultra', 'Galaxy S25+', 'Galaxy S25', 'Galaxy S24 Ultra', 'Galaxy S24', 'Galaxy S24 FE', 'Galaxy A55', 'Galaxy A35', 'Galaxy M35'].map((name) => ({ brand: 'Samsung', name })),
+  ...['Pixel 9 Pro XL', 'Pixel 9 Pro', 'Pixel 9', 'Pixel 8a'].map((name) => ({ brand: 'Google', name })),
+  ...['OnePlus 13', 'OnePlus 12', 'OnePlus Nord 4', 'OnePlus Nord CE4'].map((name) => ({ brand: 'OnePlus', name })),
+  ...['Redmi Note 14 Pro', 'Redmi Note 13 Pro', 'Redmi 13C'].map((name) => ({ brand: 'Xiaomi', name })),
+  { brand: 'Vivo', name: 'Vivo V40' },
+  { brand: 'Vivo', name: 'Vivo T3' },
+  { brand: 'Oppo', name: 'Oppo Reno 12 Pro' },
+  { brand: 'Realme', name: 'Realme 13 Pro' },
+  { brand: 'iQOO', name: 'iQOO Z9' },
+  { brand: 'Nothing', name: 'Nothing Phone (2a)' },
+];
+
 const STYLES = [
   { id: 'prints', label: 'Prints & art' },
   { id: 'cute', label: 'Cute' },
   { id: 'plain', label: 'Plain colours' },
   { id: 'armour', label: 'Armour' },
 ];
+
+const IPHONES_RECENT = ['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16', 'iPhone 15 Pro', 'iPhone 15'];
 
 const PRODUCTS = [
   {
@@ -43,9 +61,9 @@ const PRODUCTS = [
     tag: 'Bestseller',
     photo: 'assets/images/case-blue-dreamer.jpg',
     alt: 'Clear case with blue ink print and vintage car stamps',
-    devices: ['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16', 'iPhone 15 Pro', 'iPhone 15'],
+    devices: [...IPHONES_RECENT, 'Galaxy S24', 'Galaxy S25'],
     description: 'Indigo brush-stroke print with collector stamps and a vintage coupe, on a clear shock-absorbing back.',
-    specs: { Material: 'Clear polycarbonate, TPU bumper', Protection: 'Raised camera and screen lip', Magnetic: 'MagSafe compatible' },
+    specs: { Material: 'Clear polycarbonate, TPU bumper', Protection: 'Raised camera and screen lip', Magnetic: 'MagSafe compatible on iPhone' },
   },
   {
     id: 'raven',
@@ -56,7 +74,7 @@ const PRODUCTS = [
     tag: 'New',
     photo: 'assets/images/case-stained-glass-raven.jpg',
     alt: 'Stained-glass illustrated case on a Galaxy phone',
-    devices: ['Galaxy S25 Ultra', 'Galaxy S25', 'Galaxy S24 Ultra', 'Galaxy S24'],
+    devices: ['Galaxy S25 Ultra', 'Galaxy S25', 'Galaxy S24 Ultra', 'Galaxy S24', 'Galaxy S24 FE', 'OnePlus 12', 'iPhone 16 Pro'],
     description: 'Illustrated heroine in a gold stained-glass halo. Glossy, scratch-resistant print with metal camera rings.',
     specs: { Material: 'Tempered glass back, TPU frame', Protection: 'Raised camera rings', Magnetic: 'No' },
   },
@@ -68,7 +86,7 @@ const PRODUCTS = [
     mrp: 1299,
     photo: 'assets/images/case-hologram.jpg',
     alt: 'Silver holographic case with liquid chrome waves and a MagSafe ring',
-    devices: ['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16', 'iPhone 15 Pro'],
+    devices: ['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16', 'iPhone 15 Pro', 'iPhone 15', 'iPhone 14'],
     description: 'Liquid-chrome ripples that shift colour as you tilt the phone. Built-in magnet ring for chargers and car mounts.',
     specs: { Material: 'Electroplated TPU', Protection: 'Air-cushion corners', Magnetic: 'Built-in MagSafe ring' },
   },
@@ -81,7 +99,7 @@ const PRODUCTS = [
     tag: 'Bestseller',
     photo: 'assets/images/case-strawberry.jpg',
     alt: 'Pink silicone case with 3D strawberry charms',
-    devices: ['iPhone 16 Pro Max', 'iPhone 16', 'iPhone 15', 'iPhone 14'],
+    devices: ['iPhone 16 Pro Max', 'iPhone 16', 'iPhone 15', 'iPhone 14', 'iPhone 13', 'Galaxy A55', 'Redmi Note 13 Pro', 'Vivo V40'],
     description: 'Soft pink silicone with raised 3D strawberries and hearts. Velvety inside lining to keep the phone scratch-free.',
     specs: { Material: 'Liquid silicone', Protection: 'Everyday drops', Magnetic: 'No' },
   },
@@ -93,9 +111,9 @@ const PRODUCTS = [
     mrp: 1099,
     photo: 'assets/images/case-neon-lime-touch.jpg',
     alt: 'Bright lime green matte silicone case',
-    devices: ['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16', 'iPhone 15'],
+    devices: [...IPHONES_RECENT, 'iPhone 14', 'Pixel 9', 'Pixel 8a', 'OnePlus 13', 'OnePlus Nord 4', 'Nothing Phone (2a)'],
     description: 'Very bright, very light. Matte silicone that grips without collecting lint.',
-    specs: { Material: 'Liquid silicone, microfibre lining', Protection: 'Everyday drops', Magnetic: 'MagSafe compatible' },
+    specs: { Material: 'Liquid silicone, microfibre lining', Protection: 'Everyday drops', Magnetic: 'MagSafe compatible on iPhone' },
   },
   {
     id: 'velvet-matte',
@@ -105,7 +123,7 @@ const PRODUCTS = [
     mrp: 999,
     photo: 'assets/images/case-pastel-trio-tpu.jpg',
     alt: 'Three matte cases in black, cream and pink',
-    devices: ['Galaxy S25', 'Galaxy S25+', 'Galaxy S24', 'Galaxy A55'],
+    devices: ['Galaxy S25', 'Galaxy S25+', 'Galaxy S24', 'Galaxy S24 FE', 'Galaxy A55', 'Galaxy A35', 'Galaxy M35', 'OnePlus Nord CE4', 'Redmi Note 14 Pro', 'Redmi Note 13 Pro', 'Redmi 13C', 'Vivo T3', 'Oppo Reno 12 Pro', 'Realme 13 Pro', 'iQOO Z9'],
     description: 'Slim textured matte in black, cream or pink. Pick your colour at the kiosk.',
     specs: { Material: 'Matte TPU', Protection: 'Raised camera bezel', Colours: 'Black, cream, pink' },
   },
@@ -118,37 +136,96 @@ const PRODUCTS = [
     tag: 'Toughest',
     photo: 'assets/images/case-armor.jpg',
     alt: 'Black carbon-fibre armour case with a metal ring stand',
-    devices: ['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 15 Pro Max'],
+    devices: ['iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 15 Pro Max', 'iPhone 15 Pro', 'Galaxy S25 Ultra', 'Galaxy S24 Ultra'],
     description: 'Carbon-fibre shell with an aluminium camera guard and a ring that flips out as a stand.',
     specs: { Material: 'Polycarbonate, carbon fibre, aluminium', Protection: 'Military-grade drop rated', Magnetic: 'Ring doubles as magnet mount' },
   },
   {
     id: 'pixel-armour',
-    name: 'Dual-Layer Armour for Pixel',
+    name: 'Dual-Layer Armour',
     style: 'armour',
     price: 1099,
     mrp: 1499,
     photo: 'assets/images/case-pixel-magfit-armor.jpg',
-    alt: 'Grey dual-layer case for Google Pixel with an orange inner layer',
-    devices: ['Pixel 9 Pro XL', 'Pixel 9 Pro', 'Pixel 9'],
+    alt: 'Grey dual-layer case with an orange inner layer',
+    devices: ['Pixel 9 Pro XL', 'Pixel 9 Pro', 'Pixel 9', 'Pixel 8a', 'OnePlus 13', 'OnePlus 12'],
     description: 'Grey outer shell over a shock-absorbing inner layer, with a magnet ring added for MagSafe-style chargers.',
     specs: { Material: 'Polycarbonate over TPU', Protection: 'Dual-layer drop protection', Magnetic: 'Built-in magnet ring' },
   },
 ];
 
-const BAG_KEY = 'phonecase_bag_v2';
+/*
+ * Stock per case and phone. In the mockup this is generated so every phone shows a
+ * believable mix. For the live site, replace with real counts, e.g.
+ * STOCK_OVERRIDES['blue-dreamer|iPhone 15'] = 4. A Google Sheet feed can fill this later.
+ */
+const STOCK_OVERRIDES = {};
+
+const stockFor = (productId, phone) => {
+  const key = `${productId}|${phone}`;
+  if (key in STOCK_OVERRIDES) return STOCK_OVERRIDES[key];
+  let hash = 0;
+  for (const ch of key) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  const n = hash % 10;
+  return n < 2 ? 0 : n < 4 ? n - 1 : n; // about 1 in 5 sold out, some running low
+};
+
+const stockStatus = (count) => {
+  if (count === 0) return { level: 'out', text: `Sold out, back in ${SHOP.restockDays} days` };
+  if (count <= 2) return { level: 'low', text: `Only ${count} left` };
+  return { level: 'in', text: 'In stock today' };
+};
+
+const KEYS = { bag: 'phonecase_bag_v2', phone: 'phonecase_phone' };
+
+const store = {
+  get(key, fallback) {
+    try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; }
+  },
+  set(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* private mode: lasts for this visit */ }
+  },
+};
+
+const productById = (id) => PRODUCTS.find((p) => p.id === id);
+const phoneByName = (name) => PHONES.find((p) => p.name === name);
 
 const state = {
   style: 'all',
-  device: 'all',
   sort: 'featured',
   query: '',
-  bag: loadBag(),
+  phone: phoneByName(store.get(KEYS.phone, null))?.name ?? null,
+  bag: store.get(KEYS.bag, []).filter((line) => productById(line.id)),
 };
 
 const $ = (sel) => document.querySelector(sel);
 const rupees = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
-const productById = (id) => PRODUCTS.find((p) => p.id === id);
+const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const styleLabel = (id) => STYLES.find((s) => s.id === id)?.label ?? '';
+const casesFor = (phone) => PRODUCTS.filter((p) => p.devices.includes(phone));
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+
+/* ---------- Links ---------- */
+
+const whatsappUrl = (text) => `https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(text)}`;
+
+const pageUrl = (params = {}) => {
+  const url = new URL(location.pathname, location.origin);
+  Object.entries(params).forEach(([k, v]) => v && url.searchParams.set(k, v));
+  return url.toString();
+};
+
+const share = async ({ title, text, url }) => {
+  if (navigator.share) {
+    try { await navigator.share({ title, text, url }); return; } catch (err) { if (err.name === 'AbortError') return; }
+  }
+  try {
+    await navigator.clipboard.writeText(`${text} ${url}`);
+    showToast('Link copied. Paste it in the chat.');
+  } catch {
+    window.open(whatsappUrl(`${text} ${url}`), '_blank', 'noopener');
+  }
+};
 
 /* ---------- Shop details ---------- */
 
@@ -158,13 +235,10 @@ const fillShopDetails = () => {
     if (value) el.textContent = value;
   });
   $('#year').textContent = new Date().getFullYear();
-  document.title = `${SHOP.name} — Cases fitted at the kiosk, ${SHOP.mall}`;
-
+  document.title = `${SHOP.name} — Find a case for your phone, ${SHOP.mall}`;
   $('#directions-link').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SHOP.mapsQuery)}`;
   $('#whatsapp-link').href = whatsappUrl(`Hi ${SHOP.name}, I'd like to ask about a case.`);
 };
-
-const whatsappUrl = (text) => `https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(text)}`;
 
 const toMinutes = (hhmm) => {
   const [h, m] = hhmm.split(':').map(Number);
@@ -185,8 +259,7 @@ const renderHours = () => {
   const todayHours = SHOP.hours[today];
   const isOpen = minutes >= toMinutes(todayHours.open) && minutes < toMinutes(todayHours.close);
 
-  // Monday first, the way people read a week.
-  const order = [1, 2, 3, 4, 5, 6, 0];
+  const order = [1, 2, 3, 4, 5, 6, 0]; // Monday first
   $('#hours-body').innerHTML = order.map((i) => {
     const h = SHOP.hours[i];
     return `<tr class="${i === today ? 'is-today' : ''}"><th scope="row">${h.day}</th><td>${formatTime(h.open)} – ${formatTime(h.close)}</td></tr>`;
@@ -194,66 +267,189 @@ const renderHours = () => {
 
   const status = $('#open-status');
   status.classList.toggle('is-open', isOpen);
-  if (isOpen) {
-    status.textContent = `Open till ${formatTime(todayHours.close)}`;
-  } else if (minutes < toMinutes(todayHours.open)) {
-    status.textContent = `Opens ${formatTime(todayHours.open)}`;
-  } else {
-    status.textContent = `Opens ${formatTime(SHOP.hours[(today + 1) % 7].open)} tomorrow`;
+  if (isOpen) status.textContent = `Open till ${formatTime(todayHours.close)}`;
+  else if (minutes < toMinutes(todayHours.open)) status.textContent = `Opens ${formatTime(todayHours.open)}`;
+  else status.textContent = `Opens ${formatTime(SHOP.hours[(today + 1) % 7].open)} tomorrow`;
+};
+
+/* ---------- Phone finder ---------- */
+
+const compact = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+const searchPhones = (query) => {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  const tokens = q.split(/\s+/).map(compact).filter(Boolean);
+  const qCompact = compact(q);
+  return PHONES
+    .map((p) => {
+      const hay = `${p.brand} ${p.name}`.toLowerCase();
+      const hayCompact = compact(hay);
+      const words = hay.split(/\s+/).map(compact);
+      const hit = hayCompact.includes(qCompact) || tokens.every((t) => words.some((w) => w.startsWith(t)) || hayCompact.includes(t));
+      if (!hit) return null;
+      // Rank exact-ish matches first, then shorter names, so "s24" puts Galaxy S24 above S24 Ultra.
+      const score = (compact(p.name) === qCompact ? 0 : 1) + (compact(p.name).startsWith(qCompact) ? 0 : 1) + p.name.length / 100;
+      return { ...p, score };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 8);
+};
+
+const finder = {
+  matches: [],
+  active: -1,
+
+  render() {
+    const list = $('#finder-list');
+    const input = $('#finder-input');
+    if (!this.matches.length) {
+      list.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      return;
+    }
+    list.innerHTML = this.matches.map((p, i) => {
+      const n = casesFor(p.name).length;
+      return `
+        <li id="phone-opt-${i}" role="option" aria-selected="${i === this.active}" data-phone="${escapeHtml(p.name)}">
+          <span>${escapeHtml(p.name)}</span>
+          <span class="finder__n">${n ? plural(n, 'case', 'cases') : 'Ask us'}</span>
+        </li>`;
+    }).join('');
+    list.hidden = false;
+    input.setAttribute('aria-expanded', 'true');
+    if (this.active >= 0) input.setAttribute('aria-activedescendant', `phone-opt-${this.active}`);
+    else input.removeAttribute('aria-activedescendant');
+  },
+
+  update(query) {
+    this.matches = searchPhones(query);
+    this.active = -1;
+    this.render();
+  },
+
+  close() {
+    this.matches = [];
+    this.render();
+  },
+
+  move(step) {
+    if (!this.matches.length) return;
+    this.active = (this.active + step + this.matches.length) % this.matches.length;
+    this.render();
+  },
+};
+
+const setPhone = (name, { scroll = false } = {}) => {
+  state.phone = name;
+  store.set(KEYS.phone, name);
+  $('#finder-input').value = name ?? '';
+  finder.close();
+  renderFinderHint();
+  renderPhoneBar();
+  renderGrid();
+  if (scroll && name) $('#shop').scrollIntoView();
+};
+
+const renderFinderHint = (notFound = '') => {
+  const hint = $('#finder-hint');
+  if (notFound) {
+    const ask = whatsappUrl(`Hi ${SHOP.name}, do you have cases for ${notFound}?`);
+    hint.innerHTML = `We don't list “${escapeHtml(notFound)}” yet, but most models arrive in ${SHOP.restockDays} days. <a href="${ask}" target="_blank" rel="noopener">Ask us on WhatsApp</a>`;
+    return;
   }
+  if (!state.phone) { hint.textContent = ''; return; }
+  const fits = casesFor(state.phone);
+  const inStock = fits.filter((p) => stockFor(p.id, state.phone) > 0).length;
+  hint.innerHTML = fits.length
+    ? `<strong>${plural(fits.length, 'case fits', 'cases fit')} your ${escapeHtml(state.phone)}</strong>, ${inStock} in stock today. <a href="#shop">See them</a>`
+    : `Nothing on the wall for your ${escapeHtml(state.phone)} yet. <a href="${whatsappUrl(`Hi ${SHOP.name}, can you get a case for my ${state.phone}?`)}" target="_blank" rel="noopener">Ask us to order one</a>`;
+};
+
+const renderPhoneBar = () => {
+  const bar = $('#phone-bar');
+  bar.hidden = !state.phone;
+  if (!state.phone) return;
+  bar.innerHTML = `
+    <p>Showing cases for <strong>${escapeHtml(state.phone)}</strong></p>
+    <button type="button" class="link-btn" data-action="change-phone">Change phone</button>
+    <button type="button" class="link-btn" data-action="clear-phone">Show all phones</button>`;
+};
+
+// Android Chrome can tell us the model. Offer it, never apply it silently.
+const ANDROID_MODELS = [
+  [/^SM-S938/, 'Galaxy S25 Ultra'], [/^SM-S936/, 'Galaxy S25+'], [/^SM-S931/, 'Galaxy S25'],
+  [/^SM-S928/, 'Galaxy S24 Ultra'], [/^SM-S921/, 'Galaxy S24'], [/^SM-S721/, 'Galaxy S24 FE'],
+  [/^SM-A556/, 'Galaxy A55'], [/^SM-A356/, 'Galaxy A35'], [/^SM-M356/, 'Galaxy M35'],
+];
+
+const suggestDetectedPhone = async () => {
+  if (state.phone || !navigator.userAgentData?.getHighEntropyValues) return;
+  try {
+    const { model } = await navigator.userAgentData.getHighEntropyValues(['model']);
+    if (!model) return;
+    const name = ANDROID_MODELS.find(([re]) => re.test(model))?.[1] ?? phoneByName(model)?.name;
+    if (!name || state.phone) return;
+    $('#finder-hint').innerHTML = `Looks like you're on a ${escapeHtml(name)}. <button type="button" class="link-btn" data-use-phone="${escapeHtml(name)}">Show my cases</button>`;
+  } catch { /* not available, nothing to suggest */ }
 };
 
 /* ---------- Catalogue ---------- */
 
-const renderFilters = () => {
+const renderChips = () => {
   const counts = PRODUCTS.reduce((acc, p) => ({ ...acc, [p.style]: (acc[p.style] || 0) + 1 }), {});
   const chips = [{ id: 'all', label: 'All cases', n: PRODUCTS.length }, ...STYLES.map((s) => ({ ...s, n: counts[s.id] || 0 }))];
   $('#chips').innerHTML = chips.map((c) => `
     <button class="chip" type="button" data-style="${c.id}" aria-pressed="${c.id === state.style}">
       ${c.label}<span class="chip__n">${c.n}</span>
     </button>`).join('');
-
-  const devices = [...new Set(PRODUCTS.flatMap((p) => p.devices))].sort();
-  $('#device-filter').insertAdjacentHTML('beforeend', devices.map((d) => `<option value="${d}">${d}</option>`).join(''));
 };
 
 const visibleProducts = () => {
   const q = state.query.trim().toLowerCase();
   const list = PRODUCTS.filter((p) =>
     (state.style === 'all' || p.style === state.style) &&
-    (state.device === 'all' || p.devices.includes(state.device)) &&
-    (!q || `${p.name} ${p.description} ${p.devices.join(' ')}`.toLowerCase().includes(q))
+    (!state.phone || p.devices.includes(state.phone)) &&
+    (!q || `${p.name} ${p.description} ${styleLabel(p.style)}`.toLowerCase().includes(q))
   );
   if (state.sort === 'price-low') return [...list].sort((a, b) => a.price - b.price);
   if (state.sort === 'price-high') return [...list].sort((a, b) => b.price - a.price);
+  if (state.phone) return [...list].sort((a, b) => (stockFor(b.id, state.phone) > 0) - (stockFor(a.id, state.phone) > 0));
   return list;
 };
 
-const styleLabel = (id) => STYLES.find((s) => s.id === id)?.label ?? '';
-
-const deviceSummary = (p) => {
-  const brand = p.devices[0].split(' ')[0];
-  return `${brand}, ${p.devices.length} models`;
+const cardMeta = (p) => {
+  if (!state.phone) return `<p class="card__meta">${styleLabel(p.style)}, fits ${plural(p.devices.length, 'phone', 'phones')}</p>`;
+  const { level, text } = stockStatus(stockFor(p.id, state.phone));
+  return `<p class="stock stock--${level}">${text}</p>`;
 };
 
 const renderGrid = () => {
   const list = visibleProducts();
-  $('#shop-count').textContent = `${list.length} of ${PRODUCTS.length} cases`;
+  $('#shop-count').textContent = state.phone
+    ? `${plural(list.length, 'case', 'cases')} for ${state.phone}`
+    : `${list.length} of ${PRODUCTS.length} cases`;
 
   if (!list.length) {
+    const ask = state.phone
+      ? `<a class="btn btn--primary" href="${whatsappUrl(`Hi ${SHOP.name}, can you get a case for my ${state.phone}?`)}" target="_blank" rel="noopener">Ask us on WhatsApp</a>`
+      : '';
     $('#grid').innerHTML = `
       <li class="empty">
-        <h3>No cases match those filters</h3>
-        <p>Try another phone or style. We also stock more designs at the kiosk than we show here.</p>
-        <button class="btn btn--ghost" type="button" data-action="clear-filters">Clear filters</button>
+        <h3>${state.phone ? `Nothing here for ${escapeHtml(state.phone)} yet` : 'No cases match those filters'}</h3>
+        <p>${state.phone ? `Most models arrive in ${SHOP.restockDays} days. Message us and we'll keep one for you.` : 'Try another style or clear the search.'}</p>
+        <div class="empty__actions">${ask}<button class="btn btn--ghost" type="button" data-action="clear-filters">Clear filters</button></div>
       </li>`;
     return;
   }
 
   $('#grid').innerHTML = list.map((p) => {
     const off = Math.round((1 - p.price / p.mrp) * 100);
+    const soldOut = state.phone && stockFor(p.id, state.phone) === 0;
     return `
-      <li class="card">
+      <li class="card ${soldOut ? 'is-sold-out' : ''}">
         <button class="card__open" type="button" data-open="${p.id}" aria-label="View ${p.name}">
           <img src="${p.photo}" alt="${p.alt}" loading="lazy" width="440" height="550">
           <span class="sticker" aria-hidden="true">${rupees(p.price)}</span>
@@ -261,10 +457,10 @@ const renderGrid = () => {
         </button>
         <div class="card__body">
           <h3 class="card__name">${p.name}</h3>
-          <p class="card__meta">${styleLabel(p.style)}, ${deviceSummary(p)}</p>
+          ${cardMeta(p)}
           <div class="card__row">
             <p class="card__mrp"><s>${rupees(p.mrp)}</s><span>${off}% off</span></p>
-            <button class="card__add" type="button" data-open="${p.id}">Add to bag</button>
+            <button class="card__add" type="button" data-open="${p.id}">${soldOut ? 'Get notified' : 'Add to bag'}</button>
           </div>
         </div>
       </li>`;
@@ -278,18 +474,27 @@ const setStyle = (style) => {
 };
 
 const clearFilters = () => {
-  state.device = 'all';
   state.query = '';
   state.sort = 'featured';
-  $('#device-filter').value = 'all';
   $('#search').value = '';
   $('#sort').value = 'featured';
+  if (state.phone) setPhone(null);
   setStyle('all');
 };
 
 /* ---------- Product detail ---------- */
 
 let detailProduct = null;
+
+const renderDetailStock = () => {
+  const p = detailProduct;
+  const phone = $('#detail-device').value;
+  const { level, text } = stockStatus(stockFor(p.id, phone));
+  const stock = $('#detail-stock');
+  stock.className = `stock stock--${level}`;
+  stock.textContent = `${text} for ${phone}`;
+  $('#detail-add').textContent = level === 'out' ? 'Ask for a restock on WhatsApp' : 'Add to bag';
+};
 
 const openDetail = (id) => {
   const p = productById(id);
@@ -305,27 +510,42 @@ const openDetail = (id) => {
   $('#detail-desc').textContent = p.description;
   $('#detail-specs').innerHTML = Object.entries(p.specs).map(([k, v]) => `<li><span>${k}</span><span>${v}</span></li>`).join('');
 
-  // Preselect the phone the shopper filtered by, if this case fits it.
-  const preferred = p.devices.includes(state.device) ? state.device : p.devices[0];
+  const preferred = p.devices.includes(state.phone) ? state.phone : p.devices[0];
   $('#detail-device').innerHTML = p.devices.map((d) => `<option ${d === preferred ? 'selected' : ''}>${d}</option>`).join('');
-
+  renderDetailStock();
   openDialog($('#detail'));
 };
 
+const handleDetailAdd = () => {
+  const p = detailProduct;
+  const phone = $('#detail-device').value;
+  if (stockFor(p.id, phone) === 0) {
+    window.open(whatsappUrl(`Hi ${SHOP.name}, please tell me when ${p.name} for ${phone} is back.`), '_blank', 'noopener');
+    return;
+  }
+  addToBag(p.id, phone);
+  closeDialog($('#detail'));
+};
+
+const shareDetail = () => {
+  const p = detailProduct;
+  const phone = $('#detail-device').value;
+  share({
+    title: `${p.name} — ${SHOP.name}`,
+    text: `This one? ${p.name} for ${phone}, ${rupees(p.price)} at ${SHOP.name}.`,
+    url: pageUrl({ case: p.id, phone }),
+  });
+};
+
+const shareDeal = () => share({
+  title: `${SHOP.name}: buy 3, pay for 2`,
+  text: `${SHOP.name} at ${SHOP.mall} does buy 3 cases, pay for 2. Want to split it?`,
+  url: pageUrl(),
+});
+
 /* ---------- Bag ---------- */
 
-function loadBag() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(BAG_KEY) || '[]');
-    return saved.filter((line) => productById(line.id));
-  } catch {
-    return [];
-  }
-}
-
-const saveBag = () => {
-  try { localStorage.setItem(BAG_KEY, JSON.stringify(state.bag)); } catch { /* private mode: bag lives for this visit only */ }
-};
+const saveBag = () => store.set(KEYS.bag, state.bag);
 
 const addToBag = (id, device) => {
   const line = state.bag.find((l) => l.id === id && l.device === device);
@@ -333,7 +553,12 @@ const addToBag = (id, device) => {
   else state.bag.push({ id, device, qty: 1 });
   saveBag();
   renderBag();
-  showToast(`Added ${productById(id).name} for ${device}`);
+  const { count } = bagTotals();
+  const left = (3 - (count % 3)) % 3;
+  showToast(left ? `Added. ${plural(left, 'more case', 'more cases')} and the cheapest is free.` : 'Added. Cheapest case is now free.');
+  $('#bag-btn').classList.remove('is-bumped');
+  void $('#bag-btn').offsetWidth;
+  $('#bag-btn').classList.add('is-bumped');
 };
 
 const changeQty = (index, delta) => {
@@ -349,8 +574,7 @@ const changeQty = (index, delta) => {
 const bagTotals = () => {
   const units = state.bag.flatMap((l) => Array(l.qty).fill(productById(l.id).price)).sort((a, b) => a - b);
   const subtotal = units.reduce((s, n) => s + n, 0);
-  const freeCount = Math.floor(units.length / 3);
-  const saving = units.slice(0, freeCount).reduce((s, n) => s + n, 0);
+  const saving = units.slice(0, Math.floor(units.length / 3)).reduce((s, n) => s + n, 0);
   return { count: units.length, subtotal, saving, total: subtotal - saving };
 };
 
@@ -360,7 +584,7 @@ const renderProgress = (count, saving) => {
   const left = 3 - inGroup;
   const message = inGroup === 0
     ? `Cheapest case free. You're saving ${rupees(saving)}.`
-    : `Add ${left} more ${left === 1 ? 'case' : 'cases'} and the cheapest one is free.`;
+    : `Add ${plural(left, 'more case', 'more cases')} and the cheapest one is free.`;
   const filled = inGroup === 0 ? 3 : inGroup;
   const segments = [0, 1, 2].map((i) => {
     const cls = i < filled ? (inGroup === 0 && i === 2 ? 'is-free' : 'is-on') : '';
@@ -375,7 +599,7 @@ const renderBag = () => {
   const badge = $('#bag-count');
   badge.textContent = count;
   badge.classList.toggle('has-items', count > 0);
-  $('#bag-btn').setAttribute('aria-label', `Open bag, ${count} ${count === 1 ? 'case' : 'cases'}`);
+  $('#bag-btn').setAttribute('aria-label', `Open bag, ${plural(count, 'case', 'cases')}`);
 
   $('#bag-progress').innerHTML = renderProgress(count, saving);
   $('#bag-foot').hidden = count === 0;
@@ -423,11 +647,11 @@ const reserveOnWhatsApp = () => {
   const text = [
     `Hi ${SHOP.name}, please keep these aside for me:`,
     ...lines,
-    saving ? `Buy 3 pay for 2: −${rupees(saving)}` : '',
+    ...(saving ? [`Buy 3 pay for 2: −${rupees(saving)}`] : []),
     `Total: ${rupees(total)}`,
     '',
     'I will collect from the kiosk and pay there.',
-  ].filter((l, i, arr) => l !== '' || arr[i - 1] !== '').join('\n');
+  ].join('\n');
   window.open(whatsappUrl(text), '_blank', 'noopener');
 };
 
@@ -449,19 +673,76 @@ const showToast = (message) => {
   toast.textContent = message;
   toast.classList.add('is-on');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('is-on'), 2600);
+  toastTimer = setTimeout(() => toast.classList.remove('is-on'), 2800);
+};
+
+/* ---------- Deep links: ?phone=iPhone%2015&case=blue-dreamer ---------- */
+
+const applyUrlParams = () => {
+  const params = new URLSearchParams(location.search);
+  const phone = phoneByName(params.get('phone') ?? '')?.name;
+  if (phone) setPhone(phone);
+  const id = params.get('case');
+  if (id && productById(id)) openDetail(id);
 };
 
 /* ---------- Events ---------- */
 
+const bindFinder = () => {
+  const input = $('#finder-input');
+
+  input.addEventListener('input', () => {
+    finder.update(input.value);
+    if (!input.value.trim()) renderFinderHint();
+  });
+  input.addEventListener('focus', () => input.value && input.value !== state.phone && finder.update(input.value));
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (!finder.matches.length) finder.update(input.value); finder.move(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); finder.move(-1); }
+    else if (e.key === 'Escape' && finder.matches.length) { e.preventDefault(); finder.close(); }
+  });
+  input.addEventListener('blur', () => setTimeout(() => finder.close(), 120));
+
+  $('#finder-list').addEventListener('mousedown', (e) => {
+    const opt = e.target.closest('[data-phone]');
+    if (!opt) return;
+    e.preventDefault();
+    setPhone(opt.dataset.phone, { scroll: true });
+  });
+
+  $('#finder').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = input.value.trim();
+    if (!value) { input.focus(); return; }
+    const pick = finder.matches[finder.active] ?? searchPhones(value)[0];
+    if (pick) setPhone(pick.name, { scroll: true });
+    else { finder.close(); renderFinderHint(value); }
+  });
+
+  $('#finder-hint').addEventListener('click', (e) => {
+    const use = e.target.closest('[data-use-phone]');
+    if (use) setPhone(use.dataset.usePhone, { scroll: true });
+  });
+};
+
 const bindEvents = () => {
+  bindFinder();
+
   $('#chips').addEventListener('click', (e) => {
     const chip = e.target.closest('[data-style]');
     if (chip) setStyle(chip.dataset.style);
   });
-  $('#device-filter').addEventListener('change', (e) => { state.device = e.target.value; renderGrid(); });
   $('#sort').addEventListener('change', (e) => { state.sort = e.target.value; renderGrid(); });
   $('#search').addEventListener('input', (e) => { state.query = e.target.value; renderGrid(); });
+
+  $('#phone-bar').addEventListener('click', (e) => {
+    if (e.target.closest('[data-action="clear-phone"]')) setPhone(null);
+    if (e.target.closest('[data-action="change-phone"]')) {
+      $('#top').scrollIntoView();
+      $('#finder-input').select();
+      $('#finder-input').focus({ preventScroll: true });
+    }
+  });
 
   $('#grid').addEventListener('click', (e) => {
     const open = e.target.closest('[data-open]');
@@ -469,11 +750,10 @@ const bindEvents = () => {
     if (e.target.closest('[data-action="clear-filters"]')) clearFilters();
   });
 
-  $('#detail-add').addEventListener('click', () => {
-    if (!detailProduct) return;
-    addToBag(detailProduct.id, $('#detail-device').value);
-    closeDialog($('#detail'));
-  });
+  $('#detail-device').addEventListener('change', renderDetailStock);
+  $('#detail-add').addEventListener('click', handleDetailAdd);
+  $('#detail-share').addEventListener('click', shareDetail);
+  $('#share-deal').addEventListener('click', shareDeal);
 
   $('#bag-btn').addEventListener('click', () => { renderBag(); openDialog($('#bag')); });
   $('#bag-items').addEventListener('click', (e) => {
@@ -500,9 +780,14 @@ const bindEvents = () => {
 document.addEventListener('DOMContentLoaded', () => {
   fillShopDetails();
   renderHours();
-  renderFilters();
+  renderChips();
+  if (state.phone) $('#finder-input').value = state.phone;
+  renderFinderHint();
+  renderPhoneBar();
   renderGrid();
   renderBag();
   bindEvents();
+  applyUrlParams();
+  suggestDetectedPhone();
   setInterval(renderHours, 60_000);
 });

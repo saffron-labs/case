@@ -88,7 +88,7 @@ button { cursor: pointer; }
 
 .site-header {
   position: sticky; top: 0; z-index: 20;
-  background: rgba(255,255,255,.96);
+  background: #fff;
   border-bottom: 1px solid var(--line);
 }
 .site-header__inner { height: 68px; display: flex; align-items: center; gap: 24px; }
@@ -393,4 +393,87 @@ dialog::backdrop { background: rgba(27, 29, 36, .55); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ======================================================
+   Phone finder, stock, sharing, motion
+   ====================================================== */
+
+.hero__title { max-width: 9ch; }
+
+.finder { margin-top: 30px; max-width: 560px; }
+.finder__label { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.015em; margin-bottom: 10px; }
+.finder__box {
+  position: relative; display: flex; align-items: center; gap: 10px;
+  padding: 6px 6px 6px 16px; border-radius: 999px;
+  background: #fff; border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.finder__box:focus-within { box-shadow: 4px 4px 0 var(--cobalt); border-color: var(--cobalt); }
+.finder__box > svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--ink-3); stroke-width: 1.8; stroke-linecap: round; }
+.finder__box input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 1.05rem; padding: 10px 0; }
+.finder__box .btn { min-height: 46px; flex: none; }
+.finder__list {
+  position: absolute; left: 0; right: 0; top: calc(100% + 10px); z-index: 30;
+  background: #fff; border: 2px solid var(--ink); border-radius: 18px; padding: 6px;
+  box-shadow: 4px 4px 0 var(--ink); max-height: 320px; overflow-y: auto;
+}
+.finder__list [role="option"] {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 11px 12px; border-radius: 12px; cursor: pointer; font-weight: 500;
+}
+.finder__list [role="option"]:hover, .finder__list [aria-selected="true"] { background: var(--sticker); color: var(--sticker-ink); }
+.finder__n { font-size: 0.875rem; color: var(--ink-3); white-space: nowrap; }
+.finder__list [aria-selected="true"] .finder__n, .finder__list [role="option"]:hover .finder__n { color: inherit; }
+.finder__hint { margin-top: 14px; min-height: 1.55em; color: var(--ink-2); }
+.finder__hint a, .link-btn { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.link-btn { border: 0; background: none; padding: 0; }
+.link-btn:hover, .finder__hint a:hover { color: var(--cobalt); }
+@media (max-width: 480px) {
+  .finder__box { flex-wrap: wrap; border-radius: 20px; padding: 6px 6px 6px 14px; }
+  .finder__box input { flex: 1 1 60%; }
+  .finder__box .btn { flex: 1 1 100%; }
+}
+
+.phone-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px;
+  margin-top: 20px; padding: 14px 18px; border-radius: 14px;
+  background: var(--sticker); color: var(--sticker-ink);
+}
+.phone-bar[hidden] { display: none; }
+.phone-bar p { margin-right: auto; }
+.phone-bar .link-btn { color: var(--sticker-ink); }
+
+.stock { display: inline-flex; align-items: center; gap: 7px; font-size: 0.9rem; font-weight: 600; }
+.stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+.stock--in { color: var(--sale); }
+.stock--low { color: #B25E00; }
+.stock--out { color: var(--ink-3); }
+.detail .stock { margin-top: -2px; }
+
+.card.is-sold-out .card__open img { filter: grayscale(.85); opacity: .7; }
+.empty__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.btn--ink-outline { border-color: var(--sticker-ink); color: var(--sticker-ink); background: transparent; }
+.btn--ink-outline:hover { background: var(--sticker-ink); color: var(--sticker); }
+.deal__share { justify-self: start; margin-top: 8px; }
+
+/* Motion: things that hang should swing, stickers should peel */
+@media (prefers-reduced-motion: no-preference) {
+  .wall__case { transform-origin: 50% 0; transition: rotate .5s cubic-bezier(.3, 1.6, .5, 1); }
+  .wall__case:hover { rotate: -2.5deg; }
+  .wall__case:nth-child(2):hover { rotate: 2.5deg; }
+
+  .sticker { transition: rotate .3s cubic-bezier(.3, 1.6, .5, 1), scale .3s cubic-bezier(.3, 1.6, .5, 1); }
+  .card__open:hover .sticker, .wall__case:hover .sticker { rotate: 6deg; scale: 1.08; }
+
+  .bag-btn.is-bumped { animation: bump .45s cubic-bezier(.3, 1.6, .5, 1); }
+  @keyframes bump { 40% { scale: 1.12; } }
+
+  .hero__title { animation: rise .6s var(--ease) backwards; }
+  .wall__case { animation: drop .7s cubic-bezier(.3, 1.4, .5, 1) backwards; }
+  .wall__case--b { animation-delay: .08s; }
+  .wall__case--c { animation-delay: .16s; }
+  @keyframes rise { from { opacity: 0; translate: 0 12px; } }
+  @keyframes drop { from { opacity: 0; translate: 0 -28px; rotate: -4deg; } }
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phone Case — Cases fitted at the kiosk, Level 2</title>
+  <title>Phone Case — Find a case for your phone</title>
   <meta name="description" content="Phone cases for iPhone, Galaxy and Pixel, fitted while you wait at our Level 2 kiosk. Buy any 3, pay for 2. Free screen guard with every case.">
   <meta name="theme-color" content="#1B1D24">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='8' y='2' width='16' height='28' rx='5' fill='%231B1D24'/%3E%3Ccircle cx='13' cy='8' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
@@ -46,12 +46,20 @@
     <section class="hero">
       <div class="wrap hero__inner">
         <div class="hero__copy">
-          <h1 class="hero__title">Pick a case. We fit it while you wait.</h1>
-          <p class="hero__lede">Prints, clear MagSafe and drop-proof armour for iPhone, Galaxy and Pixel. Try any case on your own phone at our Level&nbsp;2 kiosk before you pay.</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#shop">Browse cases</a>
-            <a class="btn btn--ghost" href="#visit">Find the kiosk</a>
-          </div>
+          <h1 class="hero__title">New case, who dis?</h1>
+          <p class="hero__lede">Prints, plain colours and drop-proof armour for iPhone, Galaxy, Pixel, OnePlus, Redmi and more. Try them on at our Level&nbsp;2 kiosk and we fit the screen guard while you wait.</p>
+
+          <form class="finder" id="finder" role="search" autocomplete="off">
+            <label class="finder__label" for="finder-input">What phone do you have?</label>
+            <div class="finder__box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+              <input id="finder-input" type="text" placeholder="e.g. iPhone 15, Galaxy S24, Redmi Note 13"
+                role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="finder-list">
+              <button class="btn btn--primary" type="submit">Check cases</button>
+              <ul class="finder__list" id="finder-list" role="listbox" aria-label="Phone models" hidden></ul>
+            </div>
+            <p class="finder__hint" id="finder-hint" aria-live="polite"></p>
+          </form>
           <dl class="hero__facts">
             <div><dt>From</dt><dd>₹699</dd></div>
             <div><dt>Fitting time</dt><dd>About 5 min</dd></div>
@@ -79,13 +87,14 @@
     <!-- THE DEAL -->
     <section class="deal" aria-labelledby="deal-title">
       <div class="wrap deal__inner">
-        <h2 id="deal-title" class="deal__title">Three cases, pay for two.</h2>
-        <p class="deal__text">Mix any designs and any phone models. The lowest-priced case in every three comes off automatically, in your bag and at the counter.</p>
+        <h2 id="deal-title" class="deal__title">Bring two friends. Pay for two cases.</h2>
+        <p class="deal__text">Buy any three cases and the cheapest one is free. Mix any designs and any phone models. It comes off automatically, in your bag and at the counter.</p>
         <ul class="deal__perks">
           <li>Free tempered-glass screen guard, fitted bubble-free</li>
           <li>Try every case on your phone before buying</li>
           <li>₹150 off when you hand in an old case</li>
         </ul>
+        <button class="btn btn--ink-outline deal__share" type="button" id="share-deal">Send the deal to the group chat</button>
       </div>
     </section>
 
@@ -97,6 +106,8 @@
           <p class="shop__count" id="shop-count" aria-live="polite"></p>
         </div>
 
+        <div class="phone-bar" id="phone-bar" hidden></div>
+
         <div class="filters">
           <div class="chips" role="group" aria-label="Filter by style" id="chips"></div>
           <div class="filters__row">
@@ -104,12 +115,6 @@
               <span class="visually-hidden">Search cases</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
               <input type="search" id="search" placeholder="Search cases" autocomplete="off">
-            </label>
-            <label class="field">
-              <span class="field__label">Phone</span>
-              <select id="device-filter">
-                <option value="all">All phones</option>
-              </select>
             </label>
             <label class="field">
               <span class="field__label">Sort</span>
@@ -261,7 +266,9 @@
           <span class="field__label">Your phone</span>
           <select id="detail-device"></select>
         </label>
+        <p class="stock" id="detail-stock"></p>
         <button class="btn btn--primary btn--block" type="button" id="detail-add">Add to bag</button>
+        <button class="btn btn--ghost btn--block" type="button" id="detail-share">Send to a friend</button>
       </div>
     </div>
   </dialog>
